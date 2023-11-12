@@ -6,7 +6,9 @@ namespace DiecastDestiny.Models
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Manufacturer Name")]
         public string? ManufacturerName { get; set; }
+        [Display(Name = "Logo")]
         public string? LogoURL { get; set; }
         public string? History { get; set; }
 

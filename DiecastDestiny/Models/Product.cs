@@ -15,7 +15,7 @@ namespace DiecastDestiny.Models
         [Display(Name = "Model Year")]
         public int? ModelYear { get; set; }
         public string? Model { get; set; }
-        public double? Price { get; set; }
+        public double Price { get; set; }
         public ProductLine ProductLine { get; set; }
         public string? Description { get; set; }
 

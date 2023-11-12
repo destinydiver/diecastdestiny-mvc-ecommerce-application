@@ -10,7 +10,7 @@
             <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.LogoURL)</th>
-                    <th>@Html.DisplayNameFor(model => model.BrandName)</th>
+                    @*<th>@Html.DisplayNameFor(model => model.BrandName)</th>*@
                     <th>@Html.DisplayNameFor(model => model.History)</th>
                     <th>Actions</th>
                 </tr>
@@ -20,15 +20,15 @@
                 {
                     <tr>
                         <td class="align-middle">
-                            <img class="rounded-5" src="@item.LogoURL" alt="@item.BrandName" style="max-width: 100px"/>
+                            <img class="rounded-5" src="@item.LogoURL" alt="@item.BrandName" style="max-width: 200px"/>
                         </td>
-                        <td class="align-middle">
+                        @*<td class="align-middle">
                             @Html.DisplayFor(modelItem => item.BrandName)
-                        </td>
+                        </td>*@
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.History)
                         </td>
-                        <td class="align-middle">
+                        <td >
                             <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a> |
                             <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a> |
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>

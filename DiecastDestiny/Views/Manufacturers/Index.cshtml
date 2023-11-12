@@ -4,21 +4,21 @@
     ViewData["Title"] = "Manufacturers";
 }
 
-<div class="row">
+<div class="container">
     <div class=" col-md-8 offset-md-2">
         <table class="table">
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.LogoURL)</th>
-                    <th>@Html.DisplayNameFor(model => model.ManufacturerName)</th>
-                    <th>@Html.DisplayNameFor(model => model.History)</th>
-                    <th>Actions</th>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.LogoURL)</th>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.ManufacturerName)</th>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.History)</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr class="text-center">
                         <td class="align-middle">
                             <img class="rounded-5" src="@item.LogoURL" alt="@item.ManufacturerName" style="max-width: 100px"/>
                         </td>
@@ -29,8 +29,8 @@
                             @Html.DisplayFor(modelItem => item.History)
                         </td>
                         <td class="align-middle">
-                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a> |
-                            <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a> |
+                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                         </td>
                     </tr>
