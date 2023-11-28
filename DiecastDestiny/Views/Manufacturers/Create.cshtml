@@ -1,0 +1,51 @@
+﻿@model DiecastDestiny.Models.Manufacturer
+
+@{
+    ViewData["Title"] = "Create Manufacturer";
+}
+
+
+<h4>Add a Manufacturer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 150px" id="LogoURLPreview" />
+            <div class="form-group">
+                <label asp-for="ManufacturerName" class="control-label"></label>
+                <input asp-for="ManufacturerName" class="form-control" />
+                <span asp-validation-for="ManufacturerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogoURL" class="control-label"></label>
+                <input asp-for="LogoURL" class="form-control" />
+                <span asp-validation-for="LogoURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="History" class="control-label"></label>
+                <input asp-for="History" class="form-control" />
+                <span asp-validation-for="History" class="text-danger"></span>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-success" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() { 
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $("#LogoURL").val(); })
+
+        $("#LogoURL").on("change", function() {
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $(this).val();})
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

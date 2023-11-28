@@ -1,10 +1,15 @@
 using DiecastDestiny.Data;
+using DiecastDestiny.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+builder.Services.AddScoped<IBrandsService, BrandsService>();
+builder.Services.AddScoped<IManufacturersService, ManufacturersService>();
+builder.Services.AddScoped<IProductsService, ProductsService>();
+builder.Services.AddScoped<ISuppliersService, SuppliersService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

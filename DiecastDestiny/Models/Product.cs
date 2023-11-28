@@ -1,11 +1,12 @@
-﻿using DiecastDestiny.Data.Enums;
+﻿using DiecastDestiny.Data.Base;
+using DiecastDestiny.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
 namespace DiecastDestiny.Models
 {
-    public class Product
+    public class Product : IEntityBase
 {
         [Key]
         public int Id { get; set; }
@@ -29,7 +30,6 @@ namespace DiecastDestiny.Models
 
         public List<ProductSupplier>? ProductsSuppliers { get; set; }
 
-
-        
+           
     }
 }

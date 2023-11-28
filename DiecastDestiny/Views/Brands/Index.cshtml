@@ -40,6 +40,10 @@
     </div>
 </div>
 
-<div class="text-white" style="position: fixed; left: 50px; top: 150px;">
+@await Html.PartialAsync("_CreateItem", "Brands")
+
+@* Below is commented out because I am now using _Create partial view for this button as seen above this line*@
+
+@*<div class="text-white" style="position: fixed; left: 50px; top: 150px;">
     <a class="btn btn-success" asp-controller="Brands" asp-action="Create"> <i class="bi bi-plus-circle"> Add New</i></a>
-</div>
+</div>*@

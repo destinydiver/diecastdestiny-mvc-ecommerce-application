@@ -40,6 +40,5 @@
     </div>
 </div>
 
-<div class="text-white" style="position: fixed; left: 50px; top: 150px;">
-    <a class="btn btn-success" asp-controller="Brands" asp-action="Create"> <i class="bi bi-plus-circle"> Add New</i></a>
-</div>
+
+@await Html.PartialAsync("_CreateItem", "Manufacturers")

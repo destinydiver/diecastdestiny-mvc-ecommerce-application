@@ -1,0 +1,54 @@
+﻿@model Supplier;
+
+@{
+    ViewData["Title"] = "Supplier Details";
+}
+
+<div class="container">
+    <div class="row text-center">
+        <p>
+            <h1>Details for Brand for: @Model.Name</h1>
+        </p>
+    </div>
+        
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="form-control mb-4 border-0">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" readonly/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-control mb-4 border-0">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" readonly/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-control mb-4 border-0">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" readonly/>
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-control mb-4 border-0">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" readonly/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="input-group float-end">
+                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script>
+        $(document).ready(function() { 
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $("#LogoURL").val(); })
+    </script>*@
+}
+

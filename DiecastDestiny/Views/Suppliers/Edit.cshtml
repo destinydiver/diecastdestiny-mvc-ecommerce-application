@@ -1,0 +1,55 @@
+﻿@model DiecastDestiny.Models.Supplier
+
+@{
+    ViewData["Title"] = "Edit Supplier";
+}
+
+
+<h4>Edit Supplier</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+                <a class="btn btn-success" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() { 
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $("#LogoURL").val(); })
+
+        $("#LogoURL").on("change", function() {
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $(this).val();})
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

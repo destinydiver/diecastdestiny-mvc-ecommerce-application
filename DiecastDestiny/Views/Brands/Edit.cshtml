@@ -1,0 +1,58 @@
+﻿@model Brand;
+
+@{
+    ViewData["Title"] = "Update Brand";
+}
+
+<div class="container">
+    <div class="row text-center">
+        <p>
+            <h1>Update Brand</h1>
+        </p>
+    </div>
+        
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
+                    
+                <div class="form-control mb-4 border-0">
+                    <label asp-for="LogoURL" class="control-label"></label>
+                    <input asp-for="LogoURL" class="form-control" />
+                    <span asp-validation-for="LogoURL" class="text-danger"></span>
+                </div>
+                <div class="form-control mb-4 border-0">
+                    <label asp-for="BrandName" class="control-label"></label>
+                    <input asp-for="BrandName" class="form-control" />
+                    <span asp-validation-for="BrandName" class="text-danger"></span>
+                </div>
+                <div class="form-control mb-4 border-0">
+                    <label asp-for="History" class="control-label"></label>
+                    <input asp-for="History" class="form-control" />
+                    <span asp-validation-for="History" class="text-danger"></span>
+                </div>
+                <div class="input-group float-end">
+                    <input type="submit" value="Update" class="btn btn-outline-success" />
+                    <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
+                </div>
+            </form>
+                
+        </div>
+    </div>
+    
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() { 
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $("#LogoURL").val(); })
+
+        $("#LogoURL").on("change", function() {
+        var output = document.getElementById('LogoURLPreview');
+        output.src = $(this).val();})
+    </script>
+}

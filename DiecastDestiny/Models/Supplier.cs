@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DiecastDestiny.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace DiecastDestiny.Models
 {
-        public class Supplier
+        public class Supplier : IEntityBase
         {
             [Key]
             public int Id { get; set; }

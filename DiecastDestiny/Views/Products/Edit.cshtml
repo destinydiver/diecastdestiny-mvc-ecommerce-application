@@ -1,0 +1,104 @@
+﻿@using DiecastDestiny.Data.Enums
+@model NewProductVM
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <p>
+                <h4>Update Product</h4>
+            </p>
+            <div class="row">
+                <div class="col-md-8 offset-2">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-control">
+                                    <label asp-for="ProductName" class="control-label"></label>
+                                    <input asp-for="ProductName" class="form-control" />
+                                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="Model" class="control-label"></label>
+                                    <input asp-for="Model" class="form-control" />
+                                    <span asp-validation-for="Model" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="ModelYear" class="control-label"></label>
+                                    <input asp-for="ModelYear" class="form-control" />
+                                    <span asp-validation-for="ModelYear" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="Price" class="control-label"></label>
+                                    <input asp-for="Price" type="number" class="form-control" />
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="ProductImageURL" class="control-label"></label>
+                                    <input asp-for="ProductImageURL" class="form-control"/>
+                                    <span asp-validation-for="ProductImageURL" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-control">
+                                    <label asp-for="ProductLine" class="control-label"></label>
+                                    <select asp-for="ProductLine" class="form-control" asp-items="Html.GetEnumSelectList<ProductLine>()"></select>
+                                    <span asp-validation-for="ProductLine" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="ManufacturerId" class="control-label"></label>
+                                    <select asp-for="ManufacturerId" class="form-control" asp-items="ViewBag.Manufacturers"></select>
+                                    <span asp-validation-for="ManufacturerId" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="BrandId" class="control-label"></label>
+                                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.Brands"></select>
+                                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                                </div>
+                                <div class="form-control">
+                                    <label asp-for="SupplierIds" class="control-label"></label>
+                                    <select multiple asp-for="SupplierIds" class="form-control" asp-items="ViewBag.Suppliers" ></select>
+                                    <span asp-validation-for="SupplierIds" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-control">
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <textarea asp-for="Description" class="form-control"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-4 text-center">
+                            <img src="/images/@Model.ProductImageURL" width="100%" alt="@Model.ProductName">
+                        </div>
+
+                        <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-outline-success float-end" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{   
+    <script>
+        //$(document).ready(function() {
+        //var output = document.getElementById("ProductImageURLPreview");
+        //output.src = $("#ProductImageURL").val();
+        //});
+
+        //$("#ProductImageURL").on("change", function() {
+        //    var output = document.getElementById("ProductImageURLPreview");
+        //    output.src = $("#ProductImageURL").val();
+        //});
+    </script>
+}
