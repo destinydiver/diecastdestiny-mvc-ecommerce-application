@@ -4,8 +4,8 @@
     ViewData["Title"] = "Product Details";
 }
 
-<div class="container-fluid">
-    <div class="row mx-auto">
+<div class="container">
+    <div class="row">
         <div class="col-sm-12 border-primary mt-5">
             <div class="card mb-3" style="max-width: 900px;">
                 <div class="row g-0">
@@ -14,11 +14,9 @@
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @Model.ProductName
-                                    <a class="text-white float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bg-info bi-pencil-square"></i> Edit</a>
-                                    <form asp-action="Delete">
-                                        <input type="hidden" asp-for="Id" />
-                                        <input type="submit" value="Confirm Delete" class="btn btn-danger" />
-                                    </form> 
+                                    <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>
+                                    <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                    
                                     @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
                                         <a class="text-white float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bg-info bi-pencil-square"></i> Edit</a>
@@ -49,15 +47,18 @@
                             </p>
                             <p class="card-text">
                                 <b>Suppliers: </b>
-                                <hr />
-                                <div class="row">
-                                    @foreach (var supplier in Model.ProductsSuppliers)
-                                    {
-                                        <div class="flex-column text-center">
-                                            <a>@supplier.Supplier.Name</a>
-                                        </div>
-                                    }
-                                </div>
+                                @*@foreach (var supplier in Model.ProductsSuppliers)
+                                {
+                                    @supplier.Supplier.Name
+                                    <span>|</span>
+                                }*@
+                                @foreach (var supplier in Model.ProductsSuppliers)
+                                {
+                                    <a asp-controller="Suppliers" asp-action="Details" asp-route-id="@supplier.SupplierId">
+                                        @supplier.Supplier.Name
+                                    <span>|</span>
+                                    </a>
+                                }
                             </p>
                         </div>
                     </div>
@@ -66,7 +67,7 @@
                             <p class="card-text">
                                 <a class="btn btn-outline-primary float-end" asp-action="Index">
                                     <i class="bi bi-arrow-left"></i> Back to all Products</a>
-                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddToShoppingCart" 
+                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" 
                                     asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (@Model.Price.ToString("c"))</a>                                                
                             </p>
                         </div>

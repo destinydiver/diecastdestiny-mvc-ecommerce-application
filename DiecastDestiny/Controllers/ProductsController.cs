@@ -28,7 +28,14 @@ namespace DiecastDestiny.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 var filteredResult = products.Where(n => n.ProductName.Contains(searchString) ||
-                    n.Manufacturer.ManufacturerName.Contains(searchString)).ToList();
+                    n.Manufacturer.ManufacturerName.Contains(searchString) ||
+                    n.Brand.BrandName.Contains(searchString)).ToList();
+
+                if (filteredResult.Count == 0)
+                {
+                    return View("Filter");
+                }
+
                 return View("Index", filteredResult);
             }
             return View("Index", products);
@@ -89,7 +96,7 @@ namespace DiecastDestiny.Controllers
                 ManufacturerId = productDetails.ManufacturerId,
                 ProductImageURL = productDetails.ProductImageURL,
                 ProductLine = productDetails.ProductLine,
-                SupplierIds = productDetails.ProductsSuppliers.Select(s => s.ProductId).ToList()
+                SupplierIds = productDetails.ProductsSuppliers.Select(s => s.SupplierId).ToList()
 
             };
 
