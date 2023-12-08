@@ -20,6 +20,13 @@ builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor > ();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+
+builder.Services.AddSession();
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
