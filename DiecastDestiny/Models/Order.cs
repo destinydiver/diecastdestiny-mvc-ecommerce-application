@@ -9,6 +9,7 @@ namespace DiecastDestiny.Models
 
         public string Email { get; set; }
         public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         public List<OrderItem> OrderItems { get; set; }
     }

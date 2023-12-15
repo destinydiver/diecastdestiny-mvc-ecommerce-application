@@ -1,5 +1,7 @@
 ﻿using DiecastDestiny.Data.Enums;
+using DiecastDestiny.Data.Static;
 using DiecastDestiny.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace DiecastDestiny.Data
 {
@@ -163,7 +165,7 @@ namespace DiecastDestiny.Data
                         },
                         new Product()
                         {
-                            ProductImageURL = "../images/Bentley/pic1.jpg",
+                            ProductImageURL = "../images/1927Bentley/pic1.jpg",
                             ProductName = "1927 Bentley",
                             Model = "#9001",
                             Price = 70.00,
@@ -245,6 +247,65 @@ namespace DiecastDestiny.Data
 //                    context.SaveChanges();
 //                }
 
+            }
+        }
+
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+
+                // *** ROLES ***
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+
+                // *** USERS ***
+                // Below, we created a custom User Class: ApplicationUser instead of the default: IdentityUser
+                // Unlike above where we used the default: "IdentityRole" in the RoleManager
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+                // Here, I am just creating a dummy admin user's email & dummy normal user's email
+                // as to create two dummy users, 1 admin & 1 reg user to seed db with when creating below
+                string dummyAdminUserEmail = "admin@diecastheaven.com";
+                string dummyAppUserEmail = "appUser@diecastlover.com";
+
+                var adminUser = await userManager.FindByEmailAsync(dummyAdminUserEmail);
+
+                // *** DUMMY ADMIN ***
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Admin User",
+                        UserName = "adminUserName",
+                        Email = dummyAdminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+
+                }
+                
+                // *** DUMMY USER ***
+                var appUser = await userManager.FindByEmailAsync(dummyAppUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Joe Lesney",
+                        UserName = "jmatchbox",
+                        Email = dummyAppUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
             }
         }
     }

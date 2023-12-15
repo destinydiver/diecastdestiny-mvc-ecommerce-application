@@ -15,14 +15,14 @@
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @item.ProductName
-                                    @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        <a class="text-white float-end" asp-action="Edit" asp-route-id="@item.Id"><i class="bg-info bi-pencil-square"></i> Edit</a>
+                                        <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                                        <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@item.Id"><i class="bi-pencil-square"></i> Edit</a>
                                     }
-                                    *@
                                     
-                                    <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
-                                    <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@item.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                    
+                                    
                                 </h5>
                             </p>
                         </div>
@@ -35,7 +35,7 @@
                             <p class="card-text">@item.Description</p>
                             <p class="card-text"><b>Brand: </b>@item.Brand.BrandName</p>
                             <p class="card-text"><b>Model Name: </b>@item.Model</p>
-                            <p class="card-text"><b>Price: </b>@item.Price</p>
+                            <p class="card-text"><b>Price: </b>@item.Price.ToString("c")</p>
                             <p class="card-text"><b>Model Year: </b>@item.ModelYear</p>
                             <p class="card-text"><b>Manufacturer: </b>@item.Manufacturer.ManufacturerName</p>
                         </div>

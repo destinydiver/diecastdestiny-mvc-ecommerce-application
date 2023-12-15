@@ -1,6 +1,9 @@
 using DiecastDestiny.Data;
 using DiecastDestiny.Data.Cart;
 using DiecastDestiny.Data.Services;
+using DiecastDestiny.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,14 +20,16 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor > ();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
 
+// Added below service to address error: (No service for type 'Microsoft.AspNetCore.
+// Identity.RoleManager`1[Microsoft.AspNetCore.Identity.IdentityRole]' has been registered.)'
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddMemoryCache();
 builder.Services.AddSession();
-builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor > ();
-builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
-
-
-builder.Services.AddSession();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -43,6 +48,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -51,5 +57,6 @@ app.MapControllerRoute(
 
 // Seed Database
 AppDbInitializer.Seed(app);
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 app.Run();

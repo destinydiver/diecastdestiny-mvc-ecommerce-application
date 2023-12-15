@@ -11,20 +11,20 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-toggleable-sm bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-md navbar-toggleable-sm bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">Diecast Destiny</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon text-primary"><i class="bi-list" style="font-size: 2rem; color: cornflowerblue;"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Index"><i class="bi bi-car-front-fill"></i> Products</a>
                         </li>
-                        @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                        {*@
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Management
@@ -40,7 +40,7 @@
                             <span style="padding: 5px"></span>
                             <a asp-controller="Products" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i> Add New Product</a>
                             
-                        @*}*@
+                        }
                     </ul>
 
                     <form class="d-flex float-end" asp-controller="Products" asp-action="Filter" style="padding-right: 25px;">
@@ -51,32 +51,10 @@
                     <ul class="navbar-nav">
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
-
-                    @************ USER PROFILE SECTION *********@
-
-                    <div class="dropdown">
-                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-person-badge"></i> Hello @*@UserManager.GetUserName(User)*@
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="profile-btn">
-                            <li>
-                                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-                                    <i class="bi bi-list"></i> Orders
-                                </a>
-                            </li>
-
-                            @*@if (User.IsInRole("Admin"))
-                            {
-                                <li>
-                                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
-                                        <i class="bi bi-people"></i> Users
-                                    </a>
-                                </li>
-                            }*@
-
-                        </ul>
-                    </div>
+                    
+                    <partial name="_Identity.cshtml" />
+                    @*Below is commented out as I decided to go with the above option of <partial name="_Identity.cshtml"  instead*@
+                    @*@await Html.RenderPartialAsync("_Identity")*@
 
                 </div>
             </div>

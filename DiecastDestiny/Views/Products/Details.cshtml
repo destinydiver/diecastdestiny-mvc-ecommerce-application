@@ -14,14 +14,13 @@
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @Model.ProductName
-                                    <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>
-                                    <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
                                     
-                                    @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        <a class="text-white float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bg-info bi-pencil-square"></i> Edit</a>
+                                        <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>
+                                        <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
                                     }
-                                    *@
+                                    
                                 </h5>
                             </p>
                         </div>
@@ -45,21 +44,22 @@
                                     @Model.Manufacturer.ManufacturerName
                                 </a>
                             </p>
-                            <p class="card-text">
-                                <b>Suppliers: </b>
-                                @*@foreach (var supplier in Model.ProductsSuppliers)
-                                {
-                                    @supplier.Supplier.Name
-                                    <span>|</span>
-                                }*@
-                                @foreach (var supplier in Model.ProductsSuppliers)
-                                {
-                                    <a asp-controller="Suppliers" asp-action="Details" asp-route-id="@supplier.SupplierId">
-                                        @supplier.Supplier.Name
-                                    <span>|</span>
-                                    </a>
-                                }
-                            </p>
+
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <p class="card-text">
+                                    <b>Suppliers: </b>
+                                
+                                    @foreach (var supplier in Model.ProductsSuppliers)
+                                    {
+                                        <a asp-controller="Suppliers" asp-action="Details" asp-route-id="@supplier.SupplierId">
+                                            @supplier.Supplier.Name
+                                            <span>|</span>
+                                        </a>
+                                    }
+                                </p>
+                            }
+                            
                         </div>
                     </div>
                     <div class="col-md-12">

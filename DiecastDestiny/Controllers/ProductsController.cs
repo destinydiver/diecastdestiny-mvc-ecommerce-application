@@ -1,12 +1,16 @@
 ﻿using DiecastDestiny.Data;
 using DiecastDestiny.Data.Services;
+using DiecastDestiny.Data.Static;
 using DiecastDestiny.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace DiecastDestiny.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class ProductsController : Controller
     {
         private readonly IProductsService _service;
@@ -15,12 +19,14 @@ namespace DiecastDestiny.Controllers
         {
             _service = service;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var products = await _service.GetAllAsync(n => n.Brand, m => m.Manufacturer);
             return View(products);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
             var products = await _service.GetAllAsync(n => n.Brand, m => m.Manufacturer);
@@ -42,6 +48,7 @@ namespace DiecastDestiny.Controllers
         }
 
         // GET: Products/Details/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var productDetails = await _service.GetProductByIdAsync(id);
