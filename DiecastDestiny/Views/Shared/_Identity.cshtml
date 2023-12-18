@@ -6,13 +6,13 @@ the shared folder's "_ViewImports.cshtml"*@
 
 @if (!User.Identity.IsAuthenticated)
 {
-    <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
+    <a class="btn btn-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
             <i class="bi bi-box-arrow-in-right"></i> Log In
     </a>
 
     <span style="padding: 5px"></span>
 
-    <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register">
+    <a class="btn btn-warning my-2 my-sm-0" asp-controller="Account" asp-action="Register">
         <i class="bi bi-person-plus"></i> Register
     </a>
 
@@ -21,11 +21,11 @@ the shared folder's "_ViewImports.cshtml"*@
 {
     @************ USER PROFILE SECTION *********@
     <div class="dropdown">
-        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown"
+        <button class="btn btn-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown"
             aria-expanded="false">
             <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
         </button>
-        <ul class="dropdown-menu" aria-labelledby="profile-btn">
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="profile-btn">
             <li>
                 <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
                     <i class="bi bi-list"></i> Orders
@@ -45,7 +45,7 @@ the shared folder's "_ViewImports.cshtml"*@
     </div>
     <span style="padding: 5px;"></span>
     <form asp-controller="Account" asp-action="Logout">
-        <button class="btn btn-outline-danger my-2 my-sm-0">
+        <button class="btn btn-danger my-2 my-sm-0">
             Log Out <i class="bi bi-box-arrow-in-right"></i>
         </button>
     </form>

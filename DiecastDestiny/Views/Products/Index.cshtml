@@ -4,10 +4,17 @@
     ViewData["Title"] = "Products";
 }
 
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="m-1 p-3">
+        <a asp-controller="Products" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Add New Product</a>
+    </div>
+}
+
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-lg-4 col-sm-6 border-primary mb-3">
+        <div class="col-xl-4 col-md-6 col-sm-12 border-primary mb-3">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-12">
@@ -17,12 +24,11 @@
                                     @item.ProductName
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
-                                        <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@item.Id"><i class="bi-pencil-square"></i> Edit</a>
-                                    }
-                                    
-                                    
-                                    
+                                        <div class="btn-group float-end">
+                                            <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                        </div>
+                                    } 
                                 </h5>
                             </p>
                         </div>

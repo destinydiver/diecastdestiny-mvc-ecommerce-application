@@ -37,7 +37,7 @@
                                 </a>
                             </p>
                             <p class="card-text"><b>Model Name: </b>@Model.Model</p>
-                            <p class="card-text"><b>Price: </b>@Model.Price</p>
+                            <p class="card-text"><b>Price: </b>@Model.Price.ToString("c")</p>
                             <p class="card-text"><b>Model Year: </b>@Model.ModelYear</p>
                             <p class="card-text"><b>Manufacturer: </b>
                                 <a asp-controller="Manufacturers" asp-action="Details" asp-route-id="@Model.ManufacturerId">

@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-toggleable-sm bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm bg-primary navbar-dark fixed-top border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">Diecast Destiny</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,25 +27,21 @@
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Management
+                                    Manage
                                 </a>
 
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item" asp-controller="Brands" asp-action="Index"><i class="bi bi-r-circle"></i> Brands</a></li>
                                     <li><a class="dropdown-item" asp-controller="Manufacturers" asp-action="Index"><i class="bi bi-building-gear"></i> Manufacturers</a></li>
                                     <li><a class="dropdown-item" asp-controller="Suppliers" asp-action="Index"><i class="bi bi-receipt-cutoff"></i> Suppliers</a></li>
                                 </ul>
                             </li>
-
-                            <span style="padding: 5px"></span>
-                            <a asp-controller="Products" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i> Add New Product</a>
-                            
                         }
                     </ul>
 
                     <form class="d-flex float-end" asp-controller="Products" asp-action="Filter" style="padding-right: 25px;">
                         <input name="searchString" type="search" class="form-control me-2" placeholder="Search ">
-                        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
                     <ul class="navbar-nav">
@@ -61,14 +57,14 @@
         </nav>
     </header>
     <div class="container-fluid">
-        <main role="main" class="pb-3">
+        <main role="main" class="pt-5 pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted text-center">
         <div class="container">
-            &copy; 2023 - MoviesWebApp
+            &copy; 2023 - Diecast Destiny 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
