@@ -10,7 +10,7 @@ using System.Data;
 
 namespace DiecastDestiny.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize]
     public class ManufacturersController : Controller
     {
         private readonly IManufacturersService _service;
@@ -56,6 +56,7 @@ namespace DiecastDestiny.Controllers
         }
 
         // GET: Manufacturers/Edit/1
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> Edit(int id)
         {
             var data = await _service.GetByIdAsync(id);

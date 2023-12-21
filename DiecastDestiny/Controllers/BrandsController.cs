@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DiecastDestiny.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize]
     public class BrandsController : Controller
     {
         private readonly IBrandsService _service;

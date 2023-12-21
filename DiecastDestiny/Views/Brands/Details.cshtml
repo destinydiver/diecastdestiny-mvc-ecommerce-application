@@ -4,42 +4,39 @@
     ViewData["Title"] = "Brand Details";
 }
 
-<div class="container">
-    <div class="row text-center">
-        <p>
-            <h1>Details for Brand for: @Model.BrandName</h1>
-        </p>
+<div class="container py-3">
+    <div class="mb-3 p-3 border-bottom" >
+            <h1 class="text-center">Details for Brand: @Model.BrandName</h1>
     </div>
-        
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <form asp-action="Create">
-                <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
-                    
-                <div class="form-control mb-4 border-0">
-                    <label asp-for="LogoURL" class="control-label"></label>
-                    <input asp-for="LogoURL" class="form-control" readonly/>
-                    <span asp-validation-for="LogoURL" class="text-danger"></span>
+    <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
+    <div class="card bg-dark col-md-8 mx-auto" style="max-width: 540px; height: 700px">
+        <div class="card-header">
+                <div class="card-text">
+                    <h5 class="card-title text-info">
+                        @Model.BrandName
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <div class="btn-group float-end">
+                                    <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                </div>
+                            } 
+                    </h5>
                 </div>
-                <div class="form-control mb-4 border-0">
-                    <label asp-for="BrandName" class="control-label"></label>
-                    <input asp-for="BrandName" class="form-control" readonly/>
-                    <span asp-validation-for="BrandName" class="text-danger"></span>
-                </div>
-                <div class="form-control mb-4 border-0">
-                    <label asp-for="History" class="control-label"></label>
-                    <input asp-for="History" class="form-control" readonly/>
-                    <span asp-validation-for="History" class="text-danger"></span>
-                </div>
-                <div class="input-group float-end">
-                    <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                    <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
-                </div>
-            </form>
-                
+        </div>
+
+        <div class="card-body">
+                <p class="text-warning pb-1">
+                @Model.History
+                </p>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                <a class="btn btn-primary" asp-action="Index">All Brands</a>
+                <a class="btn btn-success" asp-controller="Products" asp-action="Index">Product List</a>
+            </div>
         </div>
     </div>
-    
 </div>
 
 @section Scripts{

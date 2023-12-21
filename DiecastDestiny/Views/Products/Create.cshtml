@@ -5,17 +5,21 @@
     ViewData["Title"] = "New Product";
 }
 
-<div class="container">
+<div class="container mt-4">
+    <div class="col-md-8 mx-auto text-center">
+        <h2>Add a new product</h2>
+        <hr />
+    </div>
+    
     <div class="row">
-        <div class="col-md-8 offset-2">
-            <p>
-                <h4>Add a new product</h4>
-            </p>
+        <div class="col-md-8 mx-auto">
+            
             <div class="row">
-                <div class="col-md-8 offset-2">
+                <div class="col-md-8 mx-auto">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                        @************************************************* LEFT COLUMN **********************************@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-control">
@@ -44,6 +48,8 @@
                                     <span asp-validation-for="ProductImageURL" class="text-danger"></span>
                                 </div>
                             </div>
+
+                            @* ************************************* Right Column ************************************** *@
                             <div class="col-md-6">
                                 <div class="form-control">
                                     <label asp-for="ProductLine" class="control-label"></label>
@@ -66,6 +72,8 @@
                                     <span asp-validation-for="SupplierIds" class="text-danger"></span>
                                 </div>
                             </div>
+
+                            @*********************************************** BOTTOM ROW TEXT AREA ********************************@
                             <div class="col-md-12">
                                 <div class="form-control">
                                     <label asp-for="Description" class="control-label"></label>
@@ -78,9 +86,9 @@
                             <img width="100%" id="ProductImageURLPreview" />
                         </div>
 
-                        <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-end" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                        <div class="btn-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        <a class="btn btn-primary" asp-action="Index">Show All</a>
                     </div>
                     </form>
                 </div>

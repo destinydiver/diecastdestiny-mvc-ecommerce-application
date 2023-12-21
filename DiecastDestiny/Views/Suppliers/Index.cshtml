@@ -8,17 +8,15 @@
 <div class="container py-3">
     <div class="mb-3 p-3 border-bottom">
         <h1 class="text-center">Suppliers</h1>
-
     </div>
     <div class="row">
         <div class=" col-md-8 offset-md-2">
-            <table class="table bg-light">
+            <table class="table">
                 <thead>
                     <tr>
                         <th class="text-center">@Html.DisplayNameFor(model => model.Name)</th>
                         <th class="text-center">@Html.DisplayNameFor(model => model.Email)</th>
                         <th class="text-center">@Html.DisplayNameFor(model => model.Phone)</th>
-                        @*<th class="align-middle">@Html.DisplayNameFor(model => model.Description)</th>*@
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -35,21 +33,18 @@
                             <td class="text-center">
                                 @Html.DisplayFor(modelItem => item.Phone)
                             </td>
-                            @*<td class="text-center">
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>*@
                             <td class="btn-group ms-4">
                                 <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
+                                <a class="btn btn-warning btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
                                 <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
+            <div class="mt-4 text-center">
+                <a class="btn btn-success" asp-action="Create">Add Supplier</a>
+            </div>
         </div>
     </div>
-
 </div>
-
-@await Html.PartialAsync("_CreateItem", "Suppliers")

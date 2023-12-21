@@ -5,11 +5,17 @@
     ViewData["Title"] = "Log in to your account";
 }
 
-<div class="container">
+<div class="container my-5">
+    <div class="mb-5 text-center">
+        <span>
+            <i class="bi bi-lock-fill" style="font-size: 3rem; color: midnightblue"></i>
+        </span>
+        <h2 class="">Log in to your account</h2>
+    </div>
+    
     <div class="row">
-        <div class="col-md-6 offset-3">
-            <p><h4>Log in to your account</h4></p>
-
+        <div class="col-md-6 mx-auto">
+            
             @if(TempData["Error"] != null)
             {
                 <div class="col-md-12 alert alert-danger">
@@ -18,24 +24,21 @@
             }
 
             <div class="row">
-                <div class="col-md-8 offset-2">
+                <div class="col-md-8 mx-auto" style="width:400px">
                     <form asp-action="Login" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="form-control">
-                            <label asp-for="EmailAddress" class="form-control"></label>
-                            <input asp-for="EmailAddress" class="form-control" />
-                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                        <div class="input-group mb-3">
+                          <span asp-for="EmailAddress" class="input-group-text" id="basic-addon1">Email:</span>
+                          <input asp-for="EmailAddress" type="text" class="form-control" placeholder="Email Address" aria-label="Email Address" aria-describedby="basic-addon1">
                         </div>
-                        <div class="form-control">
-                            <label asp-for="Password" class="form-control"></label>
-                            <input asp-for="Password" class="form-control" />
-                            <span asp-validation-for="Password" class="text-danger"></span>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon2">Password:</span>
+                          <input asp-for="Password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
                         </div>
-
-                        <div class="form-control">
-                            <input type="submit" class="btn btn-outline-success" value="Log In" />
-                            <a class="btn btn-outline-secondary float-end" asp-controller="Products" asp-action="Index">Cancel</a>
+                        <div class="form-control btn-group bg-info border-0">
+                            <input type="submit" class="btn btn-success" value="Log In" />
+                            <a class="btn btn-secondary float-end" asp-controller="Products" asp-action="Index">Cancel</a>
                         </div>
                     </form>
                 </div>

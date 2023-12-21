@@ -6,58 +6,67 @@
 
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
-    <div class="m-1 p-3">
+    <div class="mt-3">
         <a asp-controller="Products" asp-action="Create" class="btn btn-success"><i class="bi bi-plus-circle"></i> Add New Product</a>
     </div>
 }
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-xl-4 col-md-6 col-sm-12 border-primary mb-3">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
-                            <p class="card-text">
-                                <h5 class="card-title">
-                                    @item.ProductName
-                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                    {
-                                        <div class="btn-group float-end">
-                                            <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi-pencil-square"></i> Edit</a>
-                                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>                                     
-                                        </div>
-                                    } 
-                                </h5>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <img src="@item.ProductImageURL" width="100%" alt="@item.ProductName">
-                    </div>
-                    <div class="col-12">
-                        <div class="card-body">
-                            <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Brand: </b>@item.Brand.BrandName</p>
-                            <p class="card-text"><b>Model Name: </b>@item.Model</p>
-                            <p class="card-text"><b>Price: </b>@item.Price.ToString("c")</p>
-                            <p class="card-text"><b>Model Year: </b>@item.ModelYear</p>
-                            <p class="card-text"><b>Manufacturer: </b>@item.Manufacturer.ManufacturerName</p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card-footer">
-                            <p class="card-text">
-                                <a class="btn btn-outline-primary float-end" asp-action="Details" asp-route-id="@item.Id">
-                                    <i class="bi bi-eye-fill"></i> Show Details</a>
-                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" 
-                                    asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart (@item.Price.ToString("c"))</a>                                                
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    <div class="row ">
+        @foreach (var item in Model)
+        {
+            <div div class="col-xl-4 col-lg-6 col-sm-12 rounded-4 my-3">
+              <div class="card rounded-3 bg-dark" style="max-width: 440px; height: 700px">
+                <div class="card-header">
+                  <div class="card-text">
+                    <h5 class="card-title text-info">
+                        @item.ProductName
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <div class="btn-group float-end">
+                                    <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                </div>
+                            } 
+                    </h5>
+                  </div>
             </div>
-        </div>
-    }
-</div>
+
+                <div class="col-12">
+                            <img src="@item.ProductImageURL" width="100%" alt="@item.ProductName">
+                        </div>
+ 
+                <div class="card-body">
+                  <p class="text-warning pb-1">
+                    @item.Description
+                  </p>
+                  
+                  <ul>
+                      <li><span class="badge bg-warning text-dark">Model Name:</span> <span class="text-info">@item.Model</span></li>
+                      <li><span class="badge bg-warning text-dark">Brand:</span> <span class="text-info"><a asp-controller="Brands" asp-action="Details" asp-route-id="@item.BrandId">
+                                    @item.Brand.BrandName
+                                  </a></span></li>
+                      <li>
+                          <span class="badge bg-warning text-dark">Manufacturer:</span> <span class="text-info"><a asp-controller="Manufacturers" asp-action="Details" asp-route-id="@item.ManufacturerId">
+                                    @item.Manufacturer.ManufacturerName
+                                 </a></span>
+                      </li>
+                      <li><span class="badge bg-warning text-dark">Model Year:</span> <span class="text-info">@item.ModelYear</span></li>
+                      <li><span class="badge bg-warning text-dark">Price:</span> <span class="text-info">@item.Price.ToString("c")</span></li>
+                  </ul>
+                  
+                </div> 
+                  <div class="col-md-12">
+                            <div class="card-footer">
+                                <p class="card-text">
+                                    <a class="btn btn-info float-end" asp-action="Details" asp-route-id="@item.Id">
+                                        <i class="bi bi-eye-fill"></i> Show Details</a>
+                                    <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" 
+                                        asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart</a>                                                
+                                </p>
+                            </div>
+                        </div>
+                </div>
+              </div>
+        }
+    </div>
+

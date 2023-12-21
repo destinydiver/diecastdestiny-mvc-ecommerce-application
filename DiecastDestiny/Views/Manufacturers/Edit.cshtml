@@ -33,8 +33,9 @@
                     <span asp-validation-for="History" class="text-danger"></span>
                 </div>
                 <div class="input-group float-end">
-                    <input type="submit" asp-controller="Manufacturers" value="Update" class="btn btn-outline-success" />
-                    <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
+                    <input type="submit" asp-controller="Manufacturers" value="Update" class="btn btn-success" />
+                    <a class="btn btn-warning" asp-action="Details" asp-route-id="@Model.Id">Back</a>
+                    <a class="btn btn-primary" asp-action="Index">Show All</a>
                 </div>
             </form>
                 
