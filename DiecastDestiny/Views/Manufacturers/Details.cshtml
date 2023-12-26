@@ -4,47 +4,36 @@
     ViewData["Title"] = "Manufacturer Details";
 }
 
-<div class="container">
-    <div class="row text-center">
-        <p>
-            <h1>Details for Manufacturer: @Model.ManufacturerName</h1>
-        </p>
+<div class="container py-3">
+    <div class="mb-3 p-3 border-bottom">
+        <h1 class="text-center">Details for Manufacturer: @Model.ManufacturerName</h1>
     </div>
-        
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
-                    
-            
-            <div class="form-control mb-4 border-0">
-                <label asp-for="ManufacturerName" class="control-label"></label>
-                <input asp-for="ManufacturerName" class="form-control" readonly/>
-                <span asp-validation-for="ManufacturerName" class="text-danger"></span>
-            </div>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-            {
-                <div class="form-control mb-4 border-0">
-                <label asp-for="LogoURL" class="control-label"></label>
-                <input asp-for="LogoURL" class="form-control" readonly/>
-                <span asp-validation-for="LogoURL" class="text-danger"></span>
-            </div>
-            }
-            <div class="form-control mb-4 border-0">
-                <label asp-for="History" class="control-label"></label>
-                <input asp-for="History" class="form-control" readonly/>
-                <span asp-validation-for="History" class="text-danger"></span>
-            </div>
-            <div class="input-group float-end">
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                }
+    <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
+
+        <div class="card bg-dark col-md-8 mx-auto" style="max-width: 540px; ">
+            <div class="card-header">
                 
-                <a class="btn btn-primary" asp-action="Index">Show All</a>
+                <h3 class="card-title text-info">
+                    @Model.ManufacturerName
+                    <div class="btn-group float-end">
+                        <a class="btn btn-primary" asp-action="Index">Manufacturers</a>
+                        <a class="btn btn-success" asp-controller="Products" asp-action="Index">Products</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <div class="btn-group float-end">
+                                        <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                    </div>
+                                }
+                    </div>
+                </h3>
+            </div>
+            <div class="card-body">
+                <p class="text-warning pb-1">
+                @Model.History
+                </p>
             </div>
         </div>
-    </div>
-    
 </div>
 
 @section Scripts{

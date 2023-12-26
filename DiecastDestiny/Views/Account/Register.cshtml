@@ -5,10 +5,15 @@
     ViewData["Title"] = "Sign up for a new account";
 }
 
-<div class="container">
+<div class="container my-5">
+    <div class="mb-5 text-center">
+        <span>
+            <i class="bi bi-pencil" style="font-size: 3rem; color: midnightblue"></i>
+        </span>
+        <h2 class="">Register your new account</h2>
+    </div>
     <div class="row">
-        <div class="col-md-6 offset-3">
-            <p><h4>Register your new account</h4></p>
+        <div class="col-md-8 mx-auto">
 
             @if(TempData["Error"] != null)
             {
@@ -16,36 +21,35 @@
                     <span><b>Sorry!</b> - @TempData["Error"] </span>
                 </div>
             }
-
             <div class="row">
-                <div class="col-md-8 offset-2">
+                <div class="col-sm-8 mx-auto" style="width: 500px">
                     <form asp-action="Register" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="form-control">
-                            <label asp-for="FullName" class="form-control"></label>
-                            <input asp-for="FullName" class="form-control" />
+                        <div class="input-group mb-3">
+                            <span asp-for="FullName" class="input-group-text" id="basic-addon1">Full Name:</span>
+                            <input asp-for="FullName" type="text" class="form-control" />
                             <span asp-validation-for="FullName" class="text-danger"></span>
                         </div>
-                        <div class="form-control">
-                            <label asp-for="EmailAddress" class="form-control"></label>
+                        <div class="input-group mb-3">
+                            <span asp-for="EmailAddress" class="input-group-text" id="basic-addon2">Email:</span>
                             <input asp-for="EmailAddress" class="form-control" />
                             <span asp-validation-for="EmailAddress" class="text-danger"></span>
                         </div>
-                        <div class="form-control">
-                            <label asp-for="Password" class="form-control"></label>
+                        <div class="input-group mb-3">
+                            <span asp-for="Password" class="input-group-text" id="basic-addon3">Password:</span>
                             <input asp-for="Password" class="form-control" />
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
-                        <div class="form-control">
-                            <label asp-for="ConfirmPassword" class="form-control"></label>
+                        <div class="input-group mb-3">
+                            <span asp-for="ConfirmPassword" class="input-group-text" id="basic-addon4">Confirm Password:</span>
                             <input asp-for="ConfirmPassword" class="form-control" />
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
 
-                        <div class="form-control">
-                            <input type="submit" class="btn btn-outline-success" value="Sign Up" />
-                            <a class="btn btn-outline-secondary float-end" asp-controller="Products" asp-action="Index">Cancel</a>
+                        <div class="btn-group">
+                            <input type="submit" class="btn btn-success" value="Sign Up" />
+                            <a class="btn btn-warning" asp-controller="Products" asp-action="Index">Cancel</a>
                         </div>
                     </form>
                 </div>

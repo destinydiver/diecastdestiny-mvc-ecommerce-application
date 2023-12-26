@@ -20,12 +20,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="" asp-controller="Products" asp-action="Index"><i class="bi bi-car-front-fill"></i> Products</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                                <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Site Nav
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Index"><i class="bi bi-car-front-fill"></i> Products</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Brands" asp-action="Index"><i class="bi bi-r-circle"></i> Brands</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Manufacturers" asp-action="Index"><i class="bi bi-building-gear"></i> Manufacturers</a></li>
+                                </ul>
+                            </li>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown active">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Manage
                                 </a>

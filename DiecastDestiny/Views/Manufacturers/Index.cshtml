@@ -11,19 +11,6 @@
             <hr />
         </div>
         <table class="table">
-            <thead>
-                <tr>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.LogoURL)</th>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.ManufacturerName)</th>
-                    <th class="text-center">Actions</th>
-
-                    @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <th class="text-center">Actions</th>
-                    }*@
-                    
-                </tr>
-            </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
@@ -34,28 +21,25 @@
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.ManufacturerName)
                         </td>
-                        <td class="align-middle">
-                            <a class="btn btn-warning btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
-                        </td>
-                        @*<td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.History)
-                        </td>*@
-
-                        @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            <td class="align-middle">
-                                <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <td class="text-center">
                                 <a class="btn btn-warning btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
-                                <a class="btn btn-danger btn-sm asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
-                            </td>
-                        }*@
-                        
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <a class="btn btn-danger btn-sm asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                                    }
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
+        <div class="btn-group mt-4 align-middle">
+                <a class="btn btn-primary" asp-controller="Products" asp-action="Index">Back To Products</a>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-success" asp-action="Create">Add a Manufacturer</a>
+                }
+            </div>
     </div>
 </div>
 
-
-@await Html.PartialAsync("_CreateItem", "Manufacturers")

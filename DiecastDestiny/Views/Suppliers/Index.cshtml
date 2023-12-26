@@ -33,9 +33,9 @@
                             <td class="text-center">
                                 @Html.DisplayFor(modelItem => item.Phone)
                             </td>
-                            <td class="btn-group ms-4">
-                                <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <td class="ms-4">
                                 <a class="btn btn-warning btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
+                                <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
                                 <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
                             </td>
                         </tr>
