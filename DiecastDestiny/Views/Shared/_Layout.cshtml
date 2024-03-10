@@ -32,6 +32,7 @@
                                     <li><a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Index"><i class="bi bi-car-front-fill"></i> Products</a></li>
                                     <li><a class="dropdown-item" asp-controller="Brands" asp-action="Index"><i class="bi bi-r-circle"></i> Brands</a></li>
                                     <li><a class="dropdown-item" asp-controller="Manufacturers" asp-action="Index"><i class="bi bi-building-gear"></i> Manufacturers</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Contact"><i class="bi bi-envelope-fill"></i> Contact Us</a></li>
                                     <li><a class="dropdown-item" asp-controller="Home" asp-action="Privacy"><i class="bi bi-key-fill"></i> Privacy</a></li>
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
@@ -82,11 +83,15 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-4 text-dark">
-                    <h5>Lorem Ipsum</h5>
+                    <h2><a class="fw-bold text-secondary" asp-controller="Home" asp-action="Contact"><i class="bi bi-envelope-fill"></i> Contact Us</a></h2>
                     
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos
-                      possimus aliquid omnis commodi. Dignissimos, quam obcaecati? Fugit
-                      non ex repellendus?
+                    <p class="mt-4">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos
+                        possimus aliquid omnis commodi. Dignissimos, quam obcaecati? Fugit
+                        non ex repellendus?
+                    </p>
+
+                    
                     
                 </div>
                 <div class="col-md-4">
