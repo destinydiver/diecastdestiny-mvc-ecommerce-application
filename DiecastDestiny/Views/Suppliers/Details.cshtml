@@ -4,7 +4,42 @@
     ViewData["Title"] = "Supplier Details";
 }
 
-<div class="container">
+<div class="container py-5">
+    <div class="mb-3 p-3 border-bottom border-dark">
+        <h1 class="text-center text-dark">Details for Supplier: @Model.Name</h1>
+    </div>
+
+        <div class="card bg-dark col-md-8 mx-auto" style="max-width: 540px; ">
+            <div class="card-header">
+                
+                <h3 class="card-title text-info">
+                    @Model.Name
+                    <div class="btn-group float-end">
+                        <a class="btn btn-primary" asp-action="Index">Suppliers</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <div class="btn-group float-end">
+                                        <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                    </div>
+                                }
+                    </div>
+                </h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                      <li><span class="badge bg-warning text-dark">Email:</span> <span class="text-info">@Model.Email</span></li>
+                      <li><span class="badge bg-warning text-dark">Phone#:</span> <span class="text-info"><@Model.Phone></span></li>
+                      
+                  </ul>
+                <p class="text-warning pb-1">
+                    @Model.Description
+                </p>
+            </div>
+        </div>
+</div>
+
+@*<div class="container">
     <div class="row text-center">
         <p>
             <h1>Details for Supplier:  @Model.Name</h1>
@@ -40,7 +75,7 @@
         </div>
     </div>
     
-</div>
+</div>*@
 
 @section Scripts{
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

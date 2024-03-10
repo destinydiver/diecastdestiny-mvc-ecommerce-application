@@ -1,0 +1,109 @@
+﻿$primary: #EF652D; // Dark orange
+$secondary: #1C86DE; // Medium blue
+$success: #1CDE74;  // Lime Green
+$dark: #151269; //  Navy Blue
+$light: #F7B296;  // Peach
+$danger: #DE1C25;  // Red
+
+.bgContainer {
+    background: url(../images/Backgrounds/ToyCarBG.jpg) center center no-repeat;
+    background-size: cover;
+    height: 500px;
+    
+}
+
+.mfg-bg {
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/Backgrounds/ToyCarBG.jpg') center center no-repeat;
+    background-size: cover;
+    min-height: 800px;
+    
+}
+
+.carousel {
+    width: 380px;
+    height: 180px;
+}
+
+.slide {
+    margin: auto;
+}
+
+.brandFont {
+    font-family: Broadway;
+    text-shadow: 1px 1px 2px black;
+}
+
+.displayFont {
+    font-family: Broadway;
+    text-shadow: 2px 2px 2px black;
+}
+
+.header {
+    
+    z-index: 2;
+}
+
+
+
+
+$navbar-brand-color: $danger;
+$navbar-padding-y: 1rem;
+$navbar-dark-hover-color: $danger;
+
+$button-radius: 15px;
+
+$btn-border-radius: $button-radius; 
+$btn-border-radius-sm: $button-radius;
+$btn-border-radius-lg: $button-radius;
+
+// Spacers
+$spacer: 1rem !default;
+$spacers: ( 
+    0: 0, 
+    1: $spacer * .25, 
+    2: $spacer * .5, 
+    3: $spacer, 
+    4: $spacer * 1.5, 
+    5: $spacer * 3,
+    6: $spacer * 6,
+    7: $spacer * 8,
+    8: $spacer * 12,
+    ) !default;
+
+
+@import '../lib/twitter-bootstrap/scss/bootstrap.scss';
+
+
+/*$primary: #8520EC;
+$success: #20EC85;
+
+body {*/
+    /*
+    // royal blue
+    .dprimary {
+        color: #2021EC;
+    }
+    // aqua blue
+    .dlight {
+        color: #20ECEB;
+    }
+    // red
+    .dred {
+        color: #EC2021;
+    }
+    // pink
+    .dpink {
+        color: #EC2087;
+    }
+    // light purple
+    .dltpurple {
+        color: #A5A6F7;
+    }
+    // purple
+    .btn-primary {
+        box-shadow: 0px 8px 15px rgba(0,0,0, 0.3);
+        border-radius: 12px;
+        background-color: #EC2087;
+        //color: #8520EC;
+    }*/
+/*}*/

@@ -2,7 +2,235 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="">
+     <header class="header">
+    
+    <div class="hero text-dark pt-7">
+        <div class="container-xl">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="text-container p-4 justify-content-center h-100 mb-5">
+                        <h1 class="display-2 fw-bolder displayFont fst-italic">Welcome to Diecast Destiny</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-5 px-4 h-50">
+                        
+                        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="3000">
+                              <img src="~/images/BrandLogos/Matchbox.png" class="img-block w-100 h-100" alt="...">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                              <img src="~/images/BrandLogos/CorgiToys3.jpg" class="img-block w-100 h-100" alt="...">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                              <img src="~/images/BrandLogos/HotWheels1.png" class="img-block w-100 h-100" alt="...">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                              <img src="~/images/BrandLogos/Tonka.jpg" class="img-block w-100 h-100" alt="...">
+                            </div>
+                          </div>
+                          @*<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>*@
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
 </div>
+<div class="bgContainer">
+    
+    @*<img src="~/images/backgrounds/ToyCarBG.jpg" />*@
+</div>
+
+<section class="bg-light py-6 register">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="text-dark mb-5">Come join us!</h2>
+                <ul class="text-dark list-unstyled vstack gap-4">
+                    <li>
+                        <i class="bi bi-star-fill text-primary"></i>
+                        <strong>Communicate & Have Fun:</strong> Be a part of the diecast community and communicate with fellow collectors and enthusiasts.
+                    </li>
+                    <li>
+                        <i class="bi bi-star-fill text-primary"></i>
+                        <strong>Specials & Sales:</strong> Be alerted to our specials and sales.
+                    </li>
+                    <li>
+                        <i class="bi bi-star-fill text-primary"></i>
+                        <strong>News & Events:</strong> Be informed of the Diecast Community news and events.
+                    </li>
+                    <li>
+                        <i class="bi bi-star-fill text-primary"></i>
+                        <strong>Discounts & Prizes:</strong> Participate to possibly receive discounts and prizes.
+                    </li>
+                    <li>
+                        <i class="bi bi-star-fill text-primary"></i>
+                        <strong>10% Discount on First Order:</strong> Sign up and receive a 10% off coupon code on first order.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 p-4">
+                <form>
+                    <div class="my-4">
+                        <input type="text" class="form-control form-control-lg" placeholder="Enter Name" />
+                    </div>
+                    <div class="my-4">
+                        <input type="email" class="form-control form-control-lg" placeholder="Enter Email" />
+                    </div>
+                    <div class="my-4">
+                        <input type="text" class="form-control form-control-lg" placeholder="Enter Phone Number" />
+                    </div>
+                    <div class="form-text my-4">We do not share your information.  View Privacy policy.</div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="" />
+                        <label for="terms" class="form-check-label">I agree to the <a class="fw-bold fst-italic text-secondary" data-bs-toggle="modal" data-bs-target="#modal1">Terms & Conditions</a> .</label>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonials -->
+<section class="mt-6 py-5 mfg-bg text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="rounded-circle mb-3">
+                <p class="lead fst-italic">"I cannot say enough about how great the people at Diecast Destiny are. 
+                    I contacted them about an item that I had been looking for forever.  Not only did they manage
+                    to find that car, but it was shipped overnight. - LUV IT!"
+                </p>
+                <p class="fw-bold">Kenny Smith - Portland, ME</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="" class="rounded-circle mb-3">
+                <p class="lead fst-italic">
+                    "Diecast Destiny is the BEST! I absolutely love the product selection; but even more
+                    importantly, the prices are great!"
+                </p>
+                <p class="fw-bold">Laurie Mitchell - Miami, FL</p>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <img
+                    src="https://randomuser.me/api/portraits/men/31.jpg"
+                    alt=""
+                    class="rounded-circle mb-3"
+                />
+                <p class="lead fst-italic">
+                    "I have been using Diecast Destiny for a few years now and I am a loyal customer
+                    and frequent visitor to the social scene around this site."
+                </p>
+                <p class="fw-bold">Henry White - Boston, MA</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+        <img src="https://randomuser.me/api/portraits/women/37.jpg" alt="" class="rounded-circle mb-3">
+        <p class="lead fst-italic">"I bought my husband a Matchbox car for his birthday that he has been looking
+            for for years.  I was pleasently surprised at the price!"
+        </p>
+        <p class="fw-bold">Karen Bertren - St Louis, MO</p>
+        </div>
+        <div class="col-md-4 text-center">
+        <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="" class="rounded-circle mb-3">
+        <p class="lead fst-italic">
+            "I am very happy with all the orders that I have placed with Diecast Destiny.  They always
+            ship very fast and consistently.  The prices are also suprisingly low.  I could not be more pleased!"
+        </p>
+        <p class="fw-bold">Mark Helgensmith - Seattle, WA</p>
+        </div>
+
+        <div class="col-md-4 text-center">
+        <img
+            src="https://randomuser.me/api/portraits/men/37.jpg"
+            alt=""
+            class="rounded-circle mb-3"
+        />
+        <p class="lead fst-italic">
+            "This is the best place to find the rare and/or hard to find diecast gems.  I have seen items on here
+            that I wasn't even aware existed.  Fantastic resource for the collector and enthusiast!"
+        </p>
+        <p class="fw-bold">Charles Jones - Louisville, KY</p>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+
+@****************  Terms & Conditions Modal  ****************@
+<div id="modal1" class="modal">
+        <div class="modal-dialog modal-lg mt-7">
+          <div class="modal-content rounded-5 bg-secondary p-5">
+              <div class="modal-header">
+        <h3 class="modal-title">Terms & Conditions</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>
+                  Aliquam at accumsan nibh. Praesent pretium ut tortor ac commodo.
+                  Integer semper quam at rutrum interdum. Mauris eu diam ac urna
+                  laoreet mollis et
+                </p>
+                <p>Praesent lacus tortor, facilisis non enim eu, luctus semper velit.
+                  Curabitur faucibus diam in lectus.  Aliquam at accumsan nibh. Praesent pretium ut tortor ac commodo.
+                  Integer semper quam at rutrum interdum. Mauris eu diam ac urna
+                  laoreet mollis et
+                </p>
+      </div>
+      
+        <div class="d-flex mt-2 justify-content-center gap-2">
+                <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              </div>
+
+              @*<div class="col-md-8 offset-2">
+                <h3 class="text-primary">Terms & Conditions</h3>
+                <p>
+                  Aliquam at accumsan nibh. Praesent pretium ut tortor ac commodo.
+                  Integer semper quam at rutrum interdum. Mauris eu diam ac urna
+                  laoreet mollis et
+                </p>
+                <p>Praesent lacus tortor, facilisis non enim eu, luctus semper velit.
+                  Curabitur faucibus diam in lectus.
+                </p>
+                
+              </div>
+              <div class="d-flex mt-2 justify-content-center gap-2">
+                <a href="#" class="btn btn-primary text-white">Details</a>
+                <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+              </div>*@
+        
+        </div>
+      </div>
+
+
+<div class="container py-8">
+    <div class="text-center">
+        <h1 class="text-dark fw-bold display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <button class="btn btn-primary">Dark One</button>
+        <button class="btn btn-primary">Primary</button>
+    </div>
+</div>
+

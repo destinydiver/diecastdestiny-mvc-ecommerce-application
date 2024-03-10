@@ -6,11 +6,11 @@
 }
 
 <div class="container my-5">
-    <div class="mb-5 text-center">
+    <div class="my-5 py-5 text-center">
         <span>
             <i class="bi bi-lock-fill" style="font-size: 3rem; color: midnightblue"></i>
         </span>
-        <h2 class="">Log in to your account</h2>
+        <h2 class="text-dark">Log in to your account</h2>
     </div>
     
     <div class="row">
@@ -29,16 +29,16 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="input-group mb-3">
-                          <span asp-for="EmailAddress" class="input-group-text" id="basic-addon1">Email:</span>
+                          <span asp-for="EmailAddress" class="input-group-text bg-primary" id="basic-addon1">Email:</span>
                           <input asp-for="EmailAddress" type="text" class="form-control" placeholder="Email Address" aria-label="Email Address" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
-                          <span class="input-group-text" id="basic-addon2">Password:</span>
+                          <span class="input-group-text bg-primary" id="basic-addon2">Password:</span>
                           <input asp-for="Password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
                         </div>
-                        <div class="form-control btn-group bg-info border-0">
+                        <div class="form-control btn-group bg-light border-0">
                             <input type="submit" class="btn btn-success" value="Log In" />
-                            <a class="btn btn-secondary float-end" asp-controller="Products" asp-action="Index">Cancel</a>
+                            <a class="btn btn-warning float-end" asp-controller="Products" asp-action="Index">Cancel</a>
                         </div>
                     </form>
                 </div>

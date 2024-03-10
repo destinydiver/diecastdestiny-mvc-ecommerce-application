@@ -4,12 +4,11 @@
     ViewData["Title"] = "Brand Details";
 }
 
-<div class="container py-3">
-    <div class="mb-3 p-3 border-bottom" >
-            <h1 class="text-center">Details for Brand: @Model.BrandName</h1>
-    </div>
+<div class="container py-5">
+    
+    
     <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
-    <div class="card bg-dark col-md-8 mx-auto" style="max-width: 540px; ">
+    <div class="card bg-dark col-md-8 mx-auto py-3" style="max-width: 540px; ">
         <div class="card-header">
                 <div class="card-text">
                     <h3 class="card-title text-info">
@@ -28,7 +27,6 @@
                     </h3>
                 </div>
         </div>
-
         <div class="card-body">
                 <p class="text-warning pb-1">
                 @Model.History

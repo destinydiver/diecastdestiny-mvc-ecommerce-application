@@ -4,36 +4,37 @@
     ViewData["Title"] = "Edit Supplier";
 }
 
-
-<h4>Edit Supplier</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container py-3">
+    <div class="mb-3 p-3 border-bottom border-dark">
+        <h1 class="text-center text-dark">Edit Supplier: @Model.Name</h1>
+    </div>
+    <div class="col-md-8 mx-auto">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label asp-for="Phone" class="control-label"></label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-4">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="input-group">
-                <input type="submit" value="Update" class="btn btn-primary" />
-                <a class="btn btn-success" asp-action="Index">Back to List</a>
+                <input type="submit" value="Update" class="btn btn-success" />
+                <a class="btn btn-warning" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
+                <a class="btn btn-primary" asp-action="Index">Show All</a>
             </div>
         </form>
     </div>

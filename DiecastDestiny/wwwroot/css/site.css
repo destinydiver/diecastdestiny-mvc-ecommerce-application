@@ -9,8 +9,9 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background: #F7B296;
 }
 
 body {
