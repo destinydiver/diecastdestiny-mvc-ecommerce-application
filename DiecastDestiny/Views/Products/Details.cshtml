@@ -12,16 +12,18 @@
                     <div class="col-md-12">
                         <div class="card-header text-white">
                             <p class="card-text">
-                                <h5 class="card-title">
+                                <h4 class="card-title">
                                     @Model.ProductName
                                     
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        <a class="btn btn-danger float-end" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>
-                                        <a class="btn btn-secondary float-end" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                        <div class="btn-group float-end">
+                                    <a class="btn btn-secondary fw-bold" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                    <a class="btn btn-danger fw-bold" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                </div>
                                     }
                                     
-                                </h5>
+                                </h4>
                             </p>
                         </div>
                     </div>
@@ -65,9 +67,9 @@
                     <div class="col-md-12">
                         <div class="card-footer">
                             <p class="card-text">
-                                <a class="btn btn-info float-end" asp-action="Index">
+                                <a class="btn btn-info fw-bold float-end" asp-action="Index">
                                     <i class="bi bi-arrow-left"></i> Back to all Products</a>
-                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" 
+                                <a class="btn btn-success text-dark fw-bold" asp-controller="Orders" asp-action="AddItemToShoppingCart" 
                                     asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (@Model.Price.ToString("c"))</a>                                                
                             </p>
                         </div>

@@ -5,27 +5,27 @@
 }
 
 <div class="container py-3">
-    <div class="mb-3 p-3 border-bottom border-dark">
-        <h1 class="text-center text-dark">Edit Manufacturer: @Model.ManufacturerName</h1>
+    <div class="my-4 py-5 border-bottom border-dark">
+        <h1 class="text-center text-dark fw-bold">Edit Manufacturer: <span class="badge bg-secondary text-dark fw-bold" style="font-size: 2.5rem">@Model.ManufacturerName</span></h1>
     </div>
     <div class="col-md-8 mx-auto">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
+            <img class="border-info rounded-circle my-5 mx-auto d-block" style="max-width: 300px" src="/BrandLogos/@Model.LogoURL" />
                     
             <div class="form-control mb-4 border-0">
-                <label asp-for="LogoURL" class="control-label"></label>
+                <label asp-for="LogoURL" class="control-label text-dark fw-bold py-2"></label>
                 <input asp-for="LogoURL" class="form-control" />
                 <span asp-validation-for="LogoURL" class="text-danger"></span>
             </div>
             <div class="form-control mb-4 border-0">
-                <label asp-for="ManufacturerName" class="control-label"></label>
+                <label asp-for="ManufacturerName" class="control-label text-dark fw-bold py-2"></label>
                 <input asp-for="ManufacturerName" class="form-control" />
                 <span asp-validation-for="ManufacturerName" class="text-danger"></span>
             </div>
             <div class="form-control mb-4 border-0">
-                <label asp-for="History" class="control-label"></label>
-                <input asp-for="History" class="form-control" />
+                <label asp-for="History" class="control-label text-dark fw-bold py-2"></label>
+                <textarea asp-for="History" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="History" class="text-danger"></span>
             </div>
             <div class="input-group float-end">

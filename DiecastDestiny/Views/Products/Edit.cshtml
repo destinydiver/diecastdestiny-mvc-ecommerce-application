@@ -87,14 +87,14 @@
 
 @section Scripts{   
     <script>
-        //$(document).ready(function() {
-        //var output = document.getElementById("ProductImageURLPreview");
-        //output.src = $("#ProductImageURL").val();
-        //});
+        $(document).ready(function() {
+        var output = document.getElementById("ProductImageURLPreview");
+        output.src = $("#ProductImageURL").val();
+        });
 
-        //$("#ProductImageURL").on("change", function() {
-        //    var output = document.getElementById("ProductImageURLPreview");
-        //    output.src = $("#ProductImageURL").val();
-        //});
+        $("#ProductImageURL").on("change", function() {
+            var output = document.getElementById("ProductImageURLPreview");
+            output.src = $("#ProductImageURL").val();
+        });
     </script>
 }

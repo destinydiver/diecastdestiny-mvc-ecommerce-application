@@ -4,43 +4,43 @@
     ViewData["Title"] = "Delete a Brand";
 }
 
-<div class="container">
-    <div class="row text-center">
-        <p>
-            <h1>Delete Brand: @Model.BrandName</h1>
-        </p>
+<div class="container py-3">
+    <div class="my-4 py-5 border-bottom border-dark">
+        <h1 class="text-center text-dark fw-bold">Delete Brand: <span class="badge bg-secondary text-dark fw-bold" style="font-size: 2.5rem">@Model.BrandName</span></h1>
     </div>
-        
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
-                    
+    <div class="col-md-8 mx-auto">
+        <form asp-action="DeleteBrand">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 300px" src="/BrandLogos/@Model.LogoURL" />
+
             <div class="form-control mb-4 border-0">
-                <label asp-for="LogoURL" class="control-label"></label>
-                <input asp-for="LogoURL" class="form-control" readonly/>
+                <label asp-for="LogoURL" class="control-label py-2 fw-bold text-dark"></label>
+                <input asp-for="LogoURL" class="form-control" />
                 <span asp-validation-for="LogoURL" class="text-danger"></span>
             </div>
             <div class="form-control mb-4 border-0">
-                <label asp-for="BrandName" class="control-label"></label>
-                <input asp-for="BrandName" class="form-control" readonly/>
+                <label asp-for="BrandName" class="control-label py-2 fw-bold text-dark"></label>
+                <input asp-for="BrandName" class="form-control" />
                 <span asp-validation-for="BrandName" class="text-danger"></span>
             </div>
             <div class="form-control mb-4 border-0">
-                <label asp-for="History" class="control-label"></label>
-                <input asp-for="History" class="form-control" readonly/>
+                <label asp-for="History" class="control-label py-2 fw-bold text-dark"></label>
+                <textarea asp-for="History" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="History" class="text-danger"></span>
             </div>
-            <div class="input-group float-end">
-                <form asp-action="DeleteBrand">
-                    <input type="hidden" asp-for="Id" />
-                    <input type="submit" value="Confirm Delete" class="btn btn-danger" />
-                </form>
-                <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
+            <div class="">
+                <input type="hidden" asp-for="Id"/>
+                <input type="submit" value="Confirm Delete" class="btn btn-danger fw-bold" />
+                <div class="btn-group float-end">
+                    <a class="btn btn-secondary fw-bold" asp-action="Details" asp-route-id="@Model.Id">Cancel Delete</a>
+                    <a class="btn btn-primary fw-bold" asp-action="Index">Back to Brands</a>
+                </div>
             </div>
-        </div>
+        </form>
+
     </div>
-    
 </div>
+
 
 @section Scripts{
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

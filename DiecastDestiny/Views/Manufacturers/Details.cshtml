@@ -5,33 +5,33 @@
 }
 
 <div class="container mb-5 py-5">
-    <div class="mb-5 p-3 border-bottom border-dark">
-        <h1 class="text-center text-dark">Details for Manufacturer: @Model.ManufacturerName</h1>
-    </div>
-    <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 250px" src="/BrandLogos/@Model.LogoURL" />
+    <img class="border-info rounded-circle my-5 mx-auto d-block" style="max-width: 350px" src="/BrandLogos/@Model.LogoURL" />
 
         <div class="card bg-dark col-md-8 mx-auto" style="max-width: 540px; ">
             <div class="card-header">
                 
-                <h3 class="card-title text-info">
+                <h3 class="card-title fw-bold text-info">
                     @Model.ManufacturerName
-                    <div class="btn-group float-end">
-                        <a class="btn btn-primary" asp-action="Index">Manufacturers</a>
-                        <a class="btn btn-success" asp-controller="Products" asp-action="Index">Products</a>
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                {
-                                    <div class="btn-group float-end">
-                                        <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
-                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
-                                    </div>
-                                }
-                    </div>
+                    
                 </h3>
             </div>
             <div class="card-body">
                 <p class="text-warning pb-1">
                 @Model.History
                 </p>
+            </div>
+            <div class="card-footer">
+            <div class="btn-group float-end">
+                <a class="btn btn-primary" asp-action="Index">Manufacturers</a>
+                <a class="btn btn-success" asp-controller="Products" asp-action="Index">Products</a>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <div class="btn-group float-end">
+                        <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>
+                    </div>
+                }
+            </div>
             </div>
         </div>
 </div>
