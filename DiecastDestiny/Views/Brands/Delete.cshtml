@@ -13,22 +13,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 300px" src="/BrandLogos/@Model.LogoURL" />
 
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-3">
                 <label asp-for="LogoURL" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="LogoURL" class="form-control" />
                 <span asp-validation-for="LogoURL" class="text-danger"></span>
             </div>
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-3">
                 <label asp-for="BrandName" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="BrandName" class="form-control" />
                 <span asp-validation-for="BrandName" class="text-danger"></span>
             </div>
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-5">
                 <label asp-for="History" class="control-label py-2 fw-bold text-dark"></label>
                 <textarea asp-for="History" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="History" class="text-danger"></span>
             </div>
-            <div class="">
+            <div>
                 <input type="hidden" asp-for="Id"/>
                 <input type="submit" value="Confirm Delete" class="btn btn-danger fw-bold" />
                 <div class="btn-group float-end">
@@ -37,7 +37,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 

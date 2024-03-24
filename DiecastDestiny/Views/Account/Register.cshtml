@@ -5,12 +5,12 @@
     ViewData["Title"] = "Sign up for a new account";
 }
 
-<div class="container my-5">
+<div class="container my-7">
     <div class="mb-5 text-center">
         <span>
             <i class="bi bi-pencil" style="font-size: 3rem; color: midnightblue"></i>
         </span>
-        <h2 class="">Register your new account</h2>
+        <h2 class="fw-bold text-dark">Register your new account</h2>
     </div>
     <div class="row">
         <div class="col-md-8 mx-auto">
@@ -26,30 +26,30 @@
                     <form asp-action="Register" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="input-group mb-3">
-                            <span asp-for="FullName" class="input-group-text" id="basic-addon1">Full Name:</span>
-                            <input asp-for="FullName" type="text" class="form-control" />
+                        <div class="input-group mb-4">
+                            <span asp-for="FullName" class="input-group-text text-dark bg-primary border-0 fw-bold" id="basic-addon1">Full Name:</span>
+                            <input asp-for="FullName" type="text" class="form-control" placeholder="Full Name" />
                             <span asp-validation-for="FullName" class="text-danger"></span>
                         </div>
-                        <div class="input-group mb-3">
-                            <span asp-for="EmailAddress" class="input-group-text" id="basic-addon2">Email:</span>
-                            <input asp-for="EmailAddress" class="form-control" />
+                        <div class="input-group mb-4">
+                            <span asp-for="EmailAddress" class="input-group-text text-dark bg-primary border-0 fw-bold" id="basic-addon2">Email:</span>
+                            <input asp-for="EmailAddress" class="form-control" placeholder="Email Address"/>
                             <span asp-validation-for="EmailAddress" class="text-danger"></span>
                         </div>
-                        <div class="input-group mb-3">
-                            <span asp-for="Password" class="input-group-text" id="basic-addon3">Password:</span>
-                            <input asp-for="Password" class="form-control" />
+                        <div class="input-group mb-4">
+                            <span asp-for="Password" class="input-group-text text-dark bg-primary border-0 fw-bold" id="basic-addon3">Password:</span>
+                            <input asp-for="Password" class="form-control" placeholder="Password"/>
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
-                        <div class="input-group mb-3">
-                            <span asp-for="ConfirmPassword" class="input-group-text" id="basic-addon4">Confirm Password:</span>
-                            <input asp-for="ConfirmPassword" class="form-control" />
+                        <div class="input-group mb-4">
+                            <span asp-for="ConfirmPassword" class="input-group-text text-dark bg-primary border-0 fw-bold" id="basic-addon4">Confirm Password:</span>
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password"/>
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
 
                         <div class="btn-group">
-                            <input type="submit" class="btn btn-success" value="Sign Up" />
-                            <a class="btn btn-warning" asp-controller="Products" asp-action="Index">Cancel</a>
+                            <input type="submit" class="btn btn-success text-dark fw-bold" value="Sign Up" />
+                            <a class="btn btn-warning text-dark fw-bold" asp-controller="Products" asp-action="Index">Cancel</a>
                         </div>
                     </form>
                 </div>

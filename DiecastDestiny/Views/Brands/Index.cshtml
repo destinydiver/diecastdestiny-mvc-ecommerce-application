@@ -8,48 +8,49 @@
     <div class="mb-3 p-3 border-bottom border-success">
         <h1 class="text-center display-2 fw-bolder displayFont fst-italic text-success">Brands</h1>
     </div>
-        <div class=" col-lg-8 mt-5 mx-auto">
-            <div class="card rounded-5 bg-light p-3 text-center">
-                <table class="table table-light text-center">
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <img class="rounded-5" src="@item.LogoURL" alt="@item.BrandName" style="max-width: 100px; max-height: 70px"/>
-                                </td>
-                                <td class="text-center">
-                                    @Html.DisplayFor(modelItem => item.BrandName)
-                                </td>
+
+    <div class=" col-lg-8 mt-5 mx-auto">
+        <div class="card rounded-5 bg-light p-3 text-center">
+            <table class="table table-light text-center">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="align-middle">
+                            <td class="text-center">
+                                <img class="rounded-5" src="@item.LogoURL" alt="@item.BrandName" style="max-width: 100px; max-height: 70px"/>
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.BrandName)
+                            </td>
                             
-                                <td class="mt-3 btn-group border-0">
-                                    <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
-                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                        {
-                                            <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
-                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
-                                        }
-                                </td>
-                        
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                            <td class="mt-3 btn-group border-0">
+                                <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                                    }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
                 
-            <div class="text-center mt-4"
-                <div class="text-center mt-4">
+        <div class="text-center mt-4"
+            <div class="text-center mt-4">
                 <div class="btn-group">
-                    <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Home</a>
-                    <a class="btn btn-primary" asp-controller="Products" asp-action="Index">Products</a>
-                    <a class="btn btn-warning" asp-controller="Manufacturers" asp-action="Index">Manufacturers</a>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    <a class="btn btn-success" asp-action="Create">Add a Brand</a>
-                }
+                    <a class="btn btn-secondary fw-bold" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="btn btn-primary fw-bold" asp-controller="Products" asp-action="Index">Products</a>
+                    <a class="btn btn-warning fw-bold" asp-controller="Manufacturers" asp-action="Index">Manufacturers</a>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-success fw-bold" asp-action="Create">Add a Brand</a>
+                    }
                 </div>
             </div>
-            </div>
         </div>
+    </div>
+    
 </div>
 

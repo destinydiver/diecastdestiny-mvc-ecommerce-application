@@ -18,9 +18,9 @@
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
                                         <div class="btn-group float-end">
-                                    <a class="btn btn-secondary fw-bold" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
-                                    <a class="btn btn-danger fw-bold" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
-                                </div>
+                                            <a class="btn btn-secondary fw-bold" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                                            <a class="btn btn-danger fw-bold" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
+                                        </div>
                                     }
                                     
                                 </h4>

@@ -4,78 +4,33 @@
     ViewData["Title"] = "Supplier Details";
 }
 
-<div class="container py-5">
-    <div class="mb-3 p-3 border-bottom border-dark">
-        <h1 class="text-center text-dark">Details for Supplier: @Model.Name</h1>
+<div class="container py-3">
+    <div class="my-4 py-5 border-bottom border-dark">
+        <h1 class="text-center text-dark">Details for Supplier: <span class="badge bg-secondary text-dark fw-bold" style="font-size: 2.5rem">@Model.Name</span></h1>
     </div>
 
-        <div class="card bg-dark col-md-8 mx-auto" style="max-width: 540px; ">
-            <div class="card-header">
-                
-                <h3 class="card-title text-info">
-                    @Model.Name
-                    <div class="btn-group float-end">
-                        <a class="btn btn-primary" asp-action="Index">Suppliers</a>
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                {
-                                    <div class="btn-group float-end">
-                                        <a class="btn btn-secondary btn-sm" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
-                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a>                                     
-                                    </div>
-                                }
-                    </div>
-                </h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                      <li><span class="badge bg-warning text-dark">Email:</span> <span class="text-info">@Model.Email</span></li>
-                      <li><span class="badge bg-warning text-dark">Phone#:</span> <span class="text-info"><@Model.Phone></span></li>
-                      
-                  </ul>
-                <p class="text-warning pb-1">
-                    @Model.Description
-                </p>
+    <div class="card bg-dark col-md-8 p-2 mt-5 mx-auto" style="max-width: 640px; ">
+        <div class="card-header border-white">
+            <h3 class="card-title text-info">@Model.Name</h3>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li><span class="badge bg-warning text-dark">Email:</span> <span class="text-info">@Model.Email</span></li>
+                <li><span class="badge bg-warning text-dark">Phone#:</span> <span class="text-info">@Model.Phone</span></li>
+            </ul>
+            <p class="text-warning pb-1">
+                @Model.Description
+            </p>
+        </div>
+        <div class="card-footer border-white">
+            <div class="btn-group float-end pt-2">
+                <a class="btn btn-primary fw-bold" asp-action="Index">Suppliers</a>
+                <a class="btn btn-secondary fw-bold" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi-pencil-square"></i> Edit</a>
+                <a class="btn btn-danger fw-bold" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i> Delete</a> 
             </div>
         </div>
+    </div>
 </div>
-
-@*<div class="container">
-    <div class="row text-center">
-        <p>
-            <h1>Details for Supplier:  @Model.Name</h1>
-        </p>
-    </div>
-        
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" readonly/>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" readonly/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" readonly/>
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" readonly/>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="input-group float-end">
-                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-                <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
-            </div>
-        </div>
-    </div>
-    
-</div>*@
 
 @section Scripts{
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

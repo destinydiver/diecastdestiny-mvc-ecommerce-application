@@ -13,28 +13,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <img class="border-info rounded-circle mb-4 mx-auto d-block" style="max-width: 300px" src="/BrandLogos/@Model.LogoURL" />
                     
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-4">
                 <label asp-for="LogoURL" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="LogoURL" class="form-control" />
                 <span asp-validation-for="LogoURL" class="text-danger"></span>
             </div>
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-4">
                 <label asp-for="BrandName" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="BrandName" class="form-control" />
                 <span asp-validation-for="BrandName" class="text-danger"></span>
             </div>
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-4">
                 <label asp-for="History" class="control-label py-2 fw-bold text-dark"></label>
                 <textarea asp-for="History" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="History" class="text-danger"></span>
             </div>
             <div class="input-group float-end">
-                <input type="submit" value="Update" class="btn btn-success" />
-                <a class="btn btn-warning" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
-                <a class="btn btn-primary" asp-action="Index">Show All</a>
+                <input type="submit" value="Update" class="btn btn-success fw-bold" />
+                <a class="btn btn-warning fw-bold" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
+                <a class="btn btn-primary fw-bold" asp-action="Index">Show All</a>
             </div>
-        </form>
-                
+        </form>               
     </div>
 </div>
 

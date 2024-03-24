@@ -5,9 +5,10 @@
     ViewData["Title"] = "Edit Product";
 }
 
+
 <div class="container py-3">
-    <div class="mb-3 p-3 border-bottom border-dark">
-        <h1 class="text-center text-dark">Edit Product: @Model.ProductName</h1>
+    <div class="my-4 py-5 border-bottom border-dark">
+        <h1 class="text-center text-dark">Edit Product: <span class="badge bg-secondary text-dark fw-bold" style="font-size: 2.5rem">@Model.ProductName</span></h1>
     </div>
 
     <div class="col-md-8 mx-auto">
@@ -16,56 +17,56 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="ProductName" class="control-label"></label>
                         <input asp-for="ProductName" class="form-control" />
                         <span asp-validation-for="ProductName" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="Model" class="control-label"></label>
                         <input asp-for="Model" class="form-control" />
                         <span asp-validation-for="Model" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="ModelYear" class="control-label"></label>
                         <input asp-for="ModelYear" class="form-control" />
                         <span asp-validation-for="ModelYear" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="Price" class="control-label"></label>
                         <input asp-for="Price" type="number" class="form-control" />
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="ProductImageURL" class="control-label"></label>
                         <input asp-for="ProductImageURL" class="form-control"/>
                         <span asp-validation-for="ProductImageURL" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="ProductLine" class="control-label"></label>
                         <select asp-for="ProductLine" class="form-control" asp-items="Html.GetEnumSelectList<ProductLine>()"></select>
                         <span asp-validation-for="ProductLine" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="ManufacturerId" class="control-label"></label>
                         <select asp-for="ManufacturerId" class="form-control" asp-items="ViewBag.Manufacturers"></select>
                         <span asp-validation-for="ManufacturerId" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="BrandId" class="control-label"></label>
                         <select asp-for="BrandId" class="form-control" asp-items="ViewBag.Brands"></select>
                         <span asp-validation-for="BrandId" class="text-danger"></span>
                     </div>
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="SupplierIds" class="control-label"></label>
                         <select multiple asp-for="SupplierIds" class="form-control" asp-items="ViewBag.Suppliers" ></select>
                         <span asp-validation-for="SupplierIds" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="form-control">
+                    <div class="form-group mb-4 text-dark fw-bold">
                         <label asp-for="Description" class="control-label"></label>
                         <textarea asp-for="Description" class="form-control"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
@@ -76,10 +77,10 @@
                 <img src="/images/@Model.ProductImageURL" width="100%" alt="@Model.ProductName">
             </div>
 
-            <div class="input-group">
-                <input type="submit" value="Update" class="btn btn-success" />
-                <a class="btn btn-warning" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
-                <a class="btn btn-primary" asp-action="Index">Show All</a>
+            <div class="input-group mt-4">
+                <input type="submit" value="Update" class="btn btn-success fw-bold" />
+                <a class="btn btn-warning fw-bold" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
+                <a class="btn btn-primary fw-bold" asp-action="Index">Show All</a>
             </div>
         </form>
     </div>

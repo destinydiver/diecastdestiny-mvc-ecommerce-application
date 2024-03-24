@@ -43,9 +43,16 @@
             </tbody>
         </table>
         </div>
-        
-        <div class="mt-4 text-center">
-            <a class="btn btn-success" asp-action="Create">Add Supplier</a>
+        <div class="text-center mt-4"
+            <div class="text-center mt-4">
+                <div class="btn-group">
+                    <a class="btn btn-secondary fw-bold" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="btn btn-primary fw-bold" asp-controller="Products" asp-action="Index">Products</a>
+                    <a class="btn btn-warning fw-bold" asp-controller="Manufacturers" asp-action="Index">Manufacturers</a>
+                    <a class="btn btn-light fw-bold" asp-controller="Brands" asp-action="Index">Brands</a>
+                    <a class="btn btn-success fw-bold" asp-action="Create">Add Supplier</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -12,11 +12,24 @@ $danger: #DE1C25;  // Red
     
 }
 
+.title-bg {
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../images/Backgrounds/ToyCarBG.jpg') center center no-repeat;
+    background-size: cover;
+    min-height: 100px;
+}
+
 .mfg-bg {
     background: linear-gradient(to bottom right, rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/Backgrounds/ToyCarBG.jpg') center center no-repeat;
     background-size: cover;
     min-height: 800px;
-    
+}
+
+.map iframe {
+    left: 0;
+    top: 0;
+    height: 400px;
+    width: 100%;
+    border-radius: 25px;
 }
 
 .carousel {

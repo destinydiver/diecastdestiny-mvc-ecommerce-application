@@ -13,25 +13,25 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <img class="border-info rounded-circle my-5 mx-auto d-block" style="max-width: 300px" src="/BrandLogos/@Model.LogoURL" />
                     
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-4">
                 <label asp-for="LogoURL" class="control-label text-dark fw-bold py-2"></label>
                 <input asp-for="LogoURL" class="form-control" />
                 <span asp-validation-for="LogoURL" class="text-danger"></span>
             </div>
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-4">
                 <label asp-for="ManufacturerName" class="control-label text-dark fw-bold py-2"></label>
                 <input asp-for="ManufacturerName" class="form-control" />
                 <span asp-validation-for="ManufacturerName" class="text-danger"></span>
             </div>
-            <div class="form-control mb-4 border-0">
+            <div class="form-group mb-4">
                 <label asp-for="History" class="control-label text-dark fw-bold py-2"></label>
                 <textarea asp-for="History" class="form-control" rows="6"></textarea>
                 <span asp-validation-for="History" class="text-danger"></span>
             </div>
             <div class="input-group float-end">
-                <input type="submit" asp-controller="Manufacturers" value="Update" class="btn btn-success" />
-                <a class="btn btn-warning" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
-                <a class="btn btn-primary" asp-action="Index">Show All</a>
+                <input type="submit" asp-controller="Manufacturers" value="Update" class="btn btn-success fw-bold" />
+                <a class="btn btn-warning fw-bold" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
+                <a class="btn btn-primary fw-bold" asp-action="Index">Show All</a>
             </div>
         </form>
                 

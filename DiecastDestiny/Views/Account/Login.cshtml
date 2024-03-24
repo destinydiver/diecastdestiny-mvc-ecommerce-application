@@ -5,17 +5,16 @@
     ViewData["Title"] = "Log in to your account";
 }
 
-<div class="container my-5">
+<div class="container my-7">
     <div class="my-5 py-5 text-center">
         <span>
             <i class="bi bi-lock-fill" style="font-size: 3rem; color: midnightblue"></i>
         </span>
-        <h2 class="text-dark">Log in to your account</h2>
+        <h2 class="text-dark fw-bold">Log in to your account</h2>
     </div>
     
     <div class="row">
         <div class="col-md-6 mx-auto">
-            
             @if(TempData["Error"] != null)
             {
                 <div class="col-md-12 alert alert-danger">
@@ -28,17 +27,17 @@
                     <form asp-action="Login" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="input-group mb-3">
-                          <span asp-for="EmailAddress" class="input-group-text bg-primary" id="basic-addon1">Email:</span>
+                        <div class="input-group mb-4">
+                          <span asp-for="EmailAddress" class="input-group-text text-dark bg-primary border-0 fw-bold" id="basic-addon1">Email:</span>
                           <input asp-for="EmailAddress" type="text" class="form-control" placeholder="Email Address" aria-label="Email Address" aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3">
-                          <span class="input-group-text bg-primary" id="basic-addon2">Password:</span>
+                        <div class="input-group mb-4">
+                          <span class="input-group-text text-dark bg-primary border-0 fw-bold" id="basic-addon2">Password:</span>
                           <input asp-for="Password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
                         </div>
                         <div class="form-control btn-group bg-light border-0">
-                            <input type="submit" class="btn btn-success" value="Log In" />
-                            <a class="btn btn-warning float-end" asp-controller="Products" asp-action="Index">Cancel</a>
+                            <input type="submit" class="btn btn-success fw-bold text-dark" value="Log In" />
+                            <a class="btn btn-warning fw-bold text-dark" asp-controller="Products" asp-action="Index">Cancel</a>
                         </div>
                     </form>
                 </div>

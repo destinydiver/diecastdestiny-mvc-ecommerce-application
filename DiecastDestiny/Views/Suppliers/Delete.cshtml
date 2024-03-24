@@ -4,42 +4,45 @@
     ViewData["Title"] = "Delete a Supplier";
 }
 
-<div class="container">
-    <div class="row text-center">
-        <p>
-            <h1>Delete Supplier: @Model.Name</h1>
-        </p>
+<div class="container py-3">
+    <div class="my-4 py-5 border-bottom border-dark">
+        <h1 class="text-center text-dark fw-bold">Delete Supplier: <span class="badge bg-secondary text-dark fw-bold" style="font-size: 2.5rem">@Model.Name</span></h1>
     </div>
+    
         
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" readonly/>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" readonly/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" readonly/>
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-control mb-4 border-0">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" readonly/>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="input-group float-end">
-                <form asp-action="DeleteSupplier">
-                    <input type="hidden" asp-for="Id" />
-                    <input type="submit" value="Confirm Delete" class="btn btn-danger" />
-                </form>
-                <a class="btn btn-outline-primary" asp-action="Index">Show All</a>
-            </div>
+            <form asp-action="DeleteSupplier">
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="control-label py-2 fw-bold text-dark"></label>
+                    <input asp-for="Name" class="form-control" readonly/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label py-2 fw-bold text-dark"></label>
+                    <input asp-for="Email" class="form-control" readonly/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Phone" class="control-label py-2 fw-bold text-dark"></label>
+                    <input asp-for="Phone" class="form-control" readonly/>
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-5">
+                    <label asp-for="Description" class="control-label py-2 fw-bold text-dark"></label>
+                    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div>
+                    <input type="hidden" asp-for="Id"/>
+                    <input type="submit" value="Confirm Delete" class="btn btn-danger fw-bold" />
+                    <div class="btn-group float-end">
+                        <a class="btn btn-secondary fw-bold" asp-action="Details" asp-route-id="@Model.Id">Cancel Delete</a>
+                        <a class="btn btn-primary fw-bold" asp-action="Index">Back to Suppliers</a>
+                    </div>
+                </div>
+            </form>
+            
         </div>
     </div>
 </div>

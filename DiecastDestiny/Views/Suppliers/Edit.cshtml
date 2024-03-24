@@ -5,36 +5,36 @@
 }
 
 <div class="container py-3">
-    <div class="mb-3 p-3 border-bottom border-dark">
-        <h1 class="text-center text-dark">Edit Supplier: @Model.Name</h1>
+    <div class="my-4 py-5 border-bottom border-dark">
+        <h1 class="text-center text-dark">Edit Supplier: <span class="badge bg-secondary text-dark fw-bold" style="font-size: 2.5rem">@Model.Name</span></h1>
     </div>
     <div class="col-md-8 mx-auto">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group mb-4">
-                <label asp-for="Name" class="control-label"></label>
+            <div class="form-group mb-4 text-dark fw-bold">
+                <label asp-for="Name" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="form-group mb-4">
-                <label asp-for="Email" class="control-label"></label>
+            <div class="form-group mb-4 text-dark fw-bold">
+                <label asp-for="Email" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group mb-4">
-                <label asp-for="Phone" class="control-label"></label>
+            <div class="form-group mb-4 text-dark fw-bold">
+                <label asp-for="Phone" class="control-label py-2 fw-bold text-dark"></label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <div class="form-group mb-4">
-                <label asp-for="Description" class="control-label"></label>
+            <div class="form-group mb-4 text-dark fw-bold">
+                <label asp-for="Description" class="control-label py-2 fw-bold text-dark"></label>
                 <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="input-group">
-                <input type="submit" value="Update" class="btn btn-success" />
-                <a class="btn btn-warning" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
-                <a class="btn btn-primary" asp-action="Index">Show All</a>
+                <input type="submit" value="Update" class="btn btn-success fw-bold" />
+                <a class="btn btn-warning fw-bold" asp-action="Details" asp-route-id="@Model.Id">Cancel Edit</a>
+                <a class="btn btn-primary fw-bold" asp-action="Index">Show All</a>
             </div>
         </form>
     </div>
