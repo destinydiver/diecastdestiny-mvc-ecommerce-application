@@ -4,33 +4,32 @@
     ViewData["Title"] = "Suppliers";
 }
 
-
 <div class="container py-5 mt-6 mfg-bg rounded-5">
     <div class="mb-3 p-3 border-bottom border-success">
           <h1 class="text-center display-2 fw-bolder displayFont fst-italic text-success">Suppliers</h1>
     </div>
-    <div class=" col-lg-8 mt-5 mx-auto">
-        <div class="card rounded-5 bg-light p-3">
-            <table class="table table-light">
+    <div class="col-lg-8 mt-5 mx-auto">
+        <div class="card rounded-5 bg-light p-3 text-center">
+            <table class="table table-light text-center rounded-5 p-3">
             <thead>
                 <tr>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.Name)</th>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.Email)</th>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.Phone)</th>
-                    <th class="text-center">Actions</th>
+                    <th class="text-center text-secondary">@Html.DisplayNameFor(model => model.Name)</th>
+                    <th class="text-center text-secondary">@Html.DisplayNameFor(model => model.Email)</th>
+                    <th class="text-center text-secondary">@Html.DisplayNameFor(model => model.Phone)</th>
+                    <th class="text-center text-secondary">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="text-center">
+                        <td class="text-dark">
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
-                        <td class="text-center">
+                        <td class="text-dark">
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
-                        <td class="text-center">
+                        <td class="text-dark">
                             @Html.DisplayFor(modelItem => item.Phone)
                         </td>
                         <td class="text-center btn-group border-0">
@@ -43,6 +42,7 @@
             </tbody>
         </table>
         </div>
+        
         <div class="text-center mt-4"
             <div class="text-center mt-4">
                 <div class="btn-group">

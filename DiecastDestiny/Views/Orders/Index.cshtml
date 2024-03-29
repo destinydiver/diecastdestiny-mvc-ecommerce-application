@@ -4,20 +4,22 @@
     ViewData["Title"] = "All Orders";
 }
 
-<div class="container py-5">
-    <div class="mb-3 p-3 border-bottom border-dark">
-            <h1 class="text-center text-dark">Orders</h1>
+
+<div class="container py-5 mt-6 mfg-bg rounded-5">
+    <div class="mb-3 p-3 border-bottom border-success">
+            <h1 class="text-center display-2 fw-bolder displayFont fst-italic text-success">Orders</h1>
     </div>
-    <div class="col-md-8 mx-auto">
-        <table class="table mt-5">
+    <div class="col-lg-8 mt-5 mx-auto">
+        <div class="card rounded-5 bg-light p-3 text-center">
+            <table class="table table-light rounded-5 p-3">
             <thead>
                 <tr>
-                    <th class="text-center">Order ID</th>
-                    <th class="text-center">Items</th>
-                    <th class="text-center">Total</th>
+                    <th class="text-dark">Order ID</th>
+                    <th class="text-dark">Items</th>
+                    <th class="text-dark">Total</th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                         <th class="text-center">User</th>
+                         <th class="text-dark">User</th>
                     }
                 </tr>
             </thead>
@@ -25,31 +27,32 @@
                 @foreach (var order in Model)
                 {
                     <tr>
-                        <td class="align-middle">@order.Id</td>
-                        <td class="align-middle">
-                            <ul style="list-style-type:none">
+                        <td class="text-dark align-middle">@order.Id</td>
+                        <td class="text-dark align-middle">
+                            <ol class=" align-middle">
                                 @foreach (var item in order.OrderItems)
                                 {
-                                    <li>
-                                        <div class="alert alert-info" role="alert">
-                                            <span class="badge bg-success">@item.Quantity</span> [@item.Price.ToString("c")] - @item.Product.ProductName
+                                    <li class="">
+                                        <div class=" bg-light" role="alert">
+                                            @item.Product.ProductName - <span class="badge bg-success">@item.Quantity</span> * @item.Price.ToString("c") each
                                         </div>
                                     </li>
                                 }
-                            </ul>
+                            </ol>
                         </td>
-                        <td class="align-middle">
+                        <td class="text-dark align-middle">
                             @order.OrderItems.Select(p=>p.Product.Price * p.Quantity).Sum().ToString("c")
                         </td>
                             
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                             {
-                                <th class="text-center">@order.User.FullName</th>
+                                <td class="text-dark align-middle">@order.User.FullName</td>
                             }
                     </tr>
                         
                 }
             </tbody>
         </table>
+        </div>
     </div>
 </div>

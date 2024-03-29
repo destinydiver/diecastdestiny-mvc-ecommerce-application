@@ -5,36 +5,38 @@
 }
 
 
-<div class="container py-5">
-    <div class="mb-3 p-3 border-bottom border-dark">
-           <h1 class="text-center text-dark">Users</h1>
+<div class="container py-5 mt-6 mfg-bg rounded-5">
+    <div class="mb-3 p-3 border-bottom border-success">
+           <h1 class="text-center display-2 fw-bolder displayFont fst-italic text-success">Users</h1>
     </div>
-    <div class=" col-md-8 offset-md-2">
-        <table class="table">
+    <div class="col-lg-8 mt-5 mx-auto">
+        <div class="card rounded-5 bg-light p-3 text-center">
+            <table class="table table-light text-center rounded-5 p-3">
             <thead>
                 <tr>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.FullName)</th>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.UserName)</th>
-                    <th class="text-center">@Html.DisplayNameFor(model => model.Email)</th>
+                    <th class="text-dark">@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th class="text-dark">@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th class="text-dark">@Html.DisplayNameFor(model => model.Email)</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr class="text-center">
-                        <td class="align-middle">
+                    <tr class="text-center ">
+                        <td class="text-dark">
                             @Html.DisplayFor(modelItem => item.FullName)
                         </td>
-                        <td class="align-middle">
+                        <td class="text-dark">
                             @Html.DisplayFor(modelItem => item.UserName)
                         </td>
-                        <td class="align-middle">
+                        <td class="text-dark">
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 

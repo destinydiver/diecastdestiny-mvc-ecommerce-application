@@ -2,9 +2,9 @@
 
 @if (Model > 0)
 {
-   <li class="nav-item" >
-       <a class="nav-link bg-info text-dark" asp-controller="Orders" asp-action="ShoppingCart">
+   <span class="text-center nav-item m-2" >
+       <a class="nav-link bg-info rounded-4 text-dark" asp-controller="Orders" asp-action="ShoppingCart">
             <i class="bi bi-cart4"></i> @Model
        </a>
-   </li>
+   </span>
 }
