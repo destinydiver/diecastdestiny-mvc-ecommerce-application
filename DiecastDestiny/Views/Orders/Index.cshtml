@@ -29,7 +29,7 @@
                     <tr>
                         <td class="text-dark align-middle">@order.Id</td>
                         <td class="text-dark align-middle">
-                            <ol class=" align-middle">
+                            <ul class="align-middle" style="list-style-type:none">
                                 @foreach (var item in order.OrderItems)
                                 {
                                     <li class="">
@@ -38,7 +38,7 @@
                                         </div>
                                     </li>
                                 }
-                            </ol>
+                            </ul>
                         </td>
                         <td class="text-dark align-middle">
                             @order.OrderItems.Select(p=>p.Product.Price * p.Quantity).Sum().ToString("c")
