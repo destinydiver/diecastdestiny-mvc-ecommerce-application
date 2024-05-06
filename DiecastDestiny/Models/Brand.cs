@@ -5,8 +5,6 @@ namespace DiecastDestiny.Models
 {
     public class Brand : IEntityBase
     {
-        // I commented out the Key/Id below because now have this class inheriting from
-        // IEntityBase who's Id/Key will override this Key anyway (don't need)
         [Key]
         public int Id { get; set; }
 
