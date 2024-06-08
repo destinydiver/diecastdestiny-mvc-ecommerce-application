@@ -49,20 +49,6 @@
                                 </ul>
                         </li>
 
-                        @*@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-dark fw-bold dropdown-toggle" asp-controller="Home" asp-action="Index" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Manage
-                                </a>
-
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" asp-controller="Brands" asp-action="Index"><i class="bi bi-r-circle"></i> Brands</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Manufacturers" asp-action="Index"><i class="bi bi-building-gear"></i> Manufacturers</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Suppliers" asp-action="Index"><i class="bi bi-receipt-cutoff"></i> Suppliers</a></li>
-                                </ul>
-                            </li>
-                        }*@
                     </ul>
 
                     <form class="d-flex float-end" asp-controller="Products" asp-action="Filter" style="padding-right: 15px; margin-top: 8px">
