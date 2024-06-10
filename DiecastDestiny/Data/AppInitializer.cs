@@ -64,7 +64,6 @@ namespace DiecastDestiny.Data
                     context.SaveChanges();
                 }
 
-
                 if (!context.Manufacturers.Any())
                 {
                     context.Manufacturers.AddRange(new List<Manufacturer>()
@@ -115,7 +114,6 @@ namespace DiecastDestiny.Data
                     });
                     context.SaveChanges();
                 }
-
 
                 if (!context.Products.Any())
                 {
@@ -218,34 +216,6 @@ namespace DiecastDestiny.Data
 
                     context.SaveChanges();
                 }
-
-//                if (!context.ProductsSuppliers.Any())
-//{
-//                    context.AddRange(new List<ProductSupplier>()
-//{
-//                        new ProductSupplier()
-//                        {
-//                            ProductId = 1,
-//                            SupplierId = 2
-//                        },
-//                        new ProductSupplier()
-//                        {
-//                            ProductId = 2,
-//                            SupplierId = 3
-//                        },
-//                        new ProductSupplier()
-//{
-//                            ProductId = 3,
-//                            SupplierId = 4
-//                        },
-//                        new ProductSupplier()
-//{
-//                            ProductId = 4,
-//                            SupplierId = 1
-//                        }
-//                    });
-//                    context.SaveChanges();
-//                }
 
             }
         }
