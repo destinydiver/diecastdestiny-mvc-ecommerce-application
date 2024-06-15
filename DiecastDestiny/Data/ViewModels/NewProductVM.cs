@@ -24,7 +24,6 @@ namespace DiecastDestiny.Models
         [Display(Name = "Model Year")]
         public int? ModelYear { get; set; }
 
-
         public string? Model { get; set; }
 
 
@@ -48,13 +47,10 @@ namespace DiecastDestiny.Models
         [Required(ErrorMessage ="Brand selection is required")]
         public int BrandId { get; set; }
 
-
-        
+     
         [Display(Name = "Select Suppliers")]
         [Required(ErrorMessage ="Supplier is required")]
         public List<int>? SupplierIds { get; set; }
 
-
-        
     }
 }

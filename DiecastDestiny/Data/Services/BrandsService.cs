@@ -9,7 +9,7 @@ namespace DiecastDestiny.Data.Services
         public BrandsService(AppDbContext context) : base(context) { }
         
 
-        // All below is commented out because the above line is constructor for ActorsService
+        // All below is commented out because the above line is constructor for BrandsService
         // Which just takes in the context which is then passed to the base class generic constructor.
 
         //public async Task AddAsync(Brand brand)

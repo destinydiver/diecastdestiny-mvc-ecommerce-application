@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label asp-for="Price" class="control-label text-dark fw-bold py-2"></label>
-                        <input asp-for="Price" type="number" class="form-control" />
+                        <input asp-for="Price" class="form-control" />
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label asp-for="SupplierIds" class="control-label text-dark fw-bold py-2"></label>
-                        <select multiple asp-for="SupplierIds" class="form-control" asp-items="ViewBag.Suppliers" ></select>
+                        <select asp-for="SupplierIds" class="form-control" asp-items="ViewBag.Suppliers"  multiple></select>
                         <span asp-validation-for="SupplierIds" class="text-danger"></span>
                     </div>
                 </div>
@@ -99,9 +99,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    @*<script>
+    <script>
         $("#ProductImageURL").on("change", function() {
         var output = document.getElementById("ProductImageURLPreview");
         output.src = $(this).val();})
-    </script>*@
+    </script>
 }
